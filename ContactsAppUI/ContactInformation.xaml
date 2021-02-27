@@ -8,6 +8,7 @@
 	d:DesignHeight="450"
 	d:DesignWidth="800"
 	mc:Ignorable="d">
+
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto" />
@@ -26,60 +27,46 @@
 		<TextBlock
 			Grid.Row="0"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="Surname:" />
+			Text="Surname:" 
+			Style="{StaticResource TextBlockStyle}" />
 		<TextBlock
 			Grid.Row="1"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="Name:" />
-		<TextBlock
+			Text="Name:"
+			Style="{StaticResource TextBlockStyle}" />
+		<TextBlock 
 			Grid.Row="2"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="Birthday:" />
+			Text="Birthday:"
+			Style="{StaticResource TextBlockStyle}" />
 		<TextBlock
 			Grid.Row="3"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="Phone:" />
+			Text="Phone:"
+			Style="{StaticResource TextBlockStyle}" />
 		<TextBlock
 			Grid.Row="4"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="E-mail:" />
+			Text="E-mail:" 
+			Style="{StaticResource TextBlockStyle}" />
 		<TextBlock
 			Grid.Row="5"
 			Grid.Column="0"
-			Margin="5"
-			HorizontalAlignment="Right"
-			VerticalAlignment="Center"
-			Text="vk.com:" />
+			Text="vk.com:"
+			Style="{StaticResource TextBlockStyle}" />
 
 		<TextBox
 			x:Name="textBoxSurname"
 			Grid.Row="0"
 			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+			Style="{StaticResource TextBoxStyle}" />
 		<TextBox
 			x:Name="textBoxName"
 			Grid.Row="1"
 			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+			Style="{StaticResource TextBoxStyle}" />
 
-		<DatePicker Name="datePickerBirthday" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsDropDownOpen="True" SelectedDateFormat="Short"> 
+		<DatePicker Name="datePickerBirthday" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsDropDownOpen="False" SelectedDateFormat="Short"> 
 			<DatePicker.Resources>
 				<Style TargetType="DatePickerTextBox">
 					<Setter Property="IsReadOnly" Value="True"/>
@@ -91,20 +78,17 @@
 			x:Name="textBoxPhone"
 			Grid.Row="3"
 			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+			Style="{StaticResource TextBoxStyle}" />
 		<TextBox
 			x:Name="textBoxEmail"
 			Grid.Row="4"
 			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+			Style="{StaticResource TextBoxStyle}" />
 		<TextBox
 			x:Name="textBoxVK"
 			Grid.Row="5"
 			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+			Style="{StaticResource TextBoxStyle}" />
 
 	</Grid>
 </UserControl>
