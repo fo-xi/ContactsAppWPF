@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsAppUI"
         mc:Ignorable="d"
-        Title="Add/EditContact" Height="450" Width="800">
+        Title="Add/EditContact" Height="250" Width="500" ResizeMode="NoResize">
     <Grid>
-        
-    </Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+	    <local:ContactInformation Grid.Column="1" Margin ="5"/>
+
+		<Grid
+		    Grid.Row="1"
+		    HorizontalAlignment="Right" 
+		    Grid.IsSharedSizeScope="True">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition SharedSizeGroup="button"/>
+				<ColumnDefinition SharedSizeGroup="button"/>
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" Margin="5"/>
+			<Button Grid.Column="1" x:Name="buttonCancel" Margin="5">
+				<ContentControl>
+					<TextBlock Margin="5 0 5 0" Text="Cancel" />
+				</ContentControl>
+			</Button>
+		</Grid>
+
+	</Grid>
 </Window>

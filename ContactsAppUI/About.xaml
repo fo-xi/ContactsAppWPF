@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsAppUI"
         mc:Ignorable="d"
-        Title="About" Height="450" Width="800">
+        Title="About" Height="400" Width="550" ResizeMode="NoResize">
     <Grid>
-        
+		<TextBlock Text="ContactsApp" FontWeight="Bold" FontSize="30" Margin="10"/>
+		<TextBlock Text="v. 1.0.0" FontSize="15" Margin="15,55,0,0"/>
+		<TextBlock Text="Author: Dyagay Alexandra" FontSize="15" Margin="15,120,0,0"/>
+		<TextBlock Margin="15,185,0,0">
+            <Run Text="e-mail for feedback:" FontSize="15"></Run>
+            <Hyperlink NavigateUri="dyagaay@gmail.com" FontSize="15">dyagaay@gmail.com</Hyperlink>
+        </TextBlock>
+		<TextBlock Margin="15,210,0,0">
+			<Run Text="GitHub:" FontSize="15"></Run>
+			<Hyperlink NavigateUri="https://github.com/fo-xi/ContactsAppWPF" FontSize="15">fo-xi/ContactsAppWPF</Hyperlink>
+		</TextBlock>
+		<TextBlock Text="2021 Dyagay Alexandra" FontSize="15" Margin="15,340,0,0"/>
     </Grid>
 </Window>

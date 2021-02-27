@@ -78,12 +78,15 @@
 			Grid.Column="1"
 			VerticalAlignment="Center"
 			IsReadOnly="True" />
-		<TextBox
-			x:Name="textBoxBirthday"
-			Grid.Row="2"
-			Grid.Column="1"
-			VerticalAlignment="Center"
-			IsReadOnly="True" />
+
+		<DatePicker Name="datePickerBirthday" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsDropDownOpen="True" SelectedDateFormat="Short"> 
+			<DatePicker.Resources>
+				<Style TargetType="DatePickerTextBox">
+					<Setter Property="IsReadOnly" Value="True"/>
+				</Style>
+			</DatePicker.Resources>
+		</DatePicker>
+
 		<TextBox
 			x:Name="textBoxPhone"
 			Grid.Row="3"
