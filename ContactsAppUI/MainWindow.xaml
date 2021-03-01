@@ -5,12 +5,14 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:ContactsAppUI"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
 	Title="ContactsApp"
 	Width="800"
 	Height="450"
 	Background="Gainsboro"
 	Icon="Resources/app.png"
-	mc:Ignorable="d">
+	mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance viewModel:MainWindowVM}">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0.5*" />
@@ -41,12 +43,14 @@
 			Grid.Row="1"
 			Grid.RowSpan="2"
 			Grid.Column="0"
-			Margin="5,0,0,0" />
+			Margin="5,0,0,0"
+			DataContext="{Binding Path=ListСontacts}"/>
 		<local:ContactInformation
 			Grid.Row="1"
 			Grid.Column="1"
 			Margin="5,5,10,5"
-			VerticalAlignment="Top" />
+			VerticalAlignment="Top"
+			DataContext="{Binding Path=ListСontacts.SelectedContact}"/>
 		<local:Birthday Grid.Row="2" Grid.Column="1" />
 	</Grid>
 </Window>

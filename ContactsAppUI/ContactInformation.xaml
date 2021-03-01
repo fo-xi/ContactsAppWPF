@@ -5,9 +5,11 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:ContactsAppUI"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:contactsApp="clr-namespace:ContactsApp;assembly=ContactsApp"
 	d:DesignHeight="450"
 	d:DesignWidth="800"
-	mc:Ignorable="d">
+	mc:Ignorable="d" 
+	d:DataContext="{d:DesignInstance contactsApp:Contact}">
 
 	<Grid>
 		<Grid.ColumnDefinitions>
@@ -59,14 +61,22 @@
 			x:Name="textBoxSurname"
 			Grid.Row="0"
 			Grid.Column="1"
-			Style="{StaticResource TextBoxStyle}" />
+			Style="{StaticResource TextBoxStyle}"
+			Text ="{Binding Path=Surname}"/>
 		<TextBox
 			x:Name="textBoxName"
 			Grid.Row="1"
 			Grid.Column="1"
-			Style="{StaticResource TextBoxStyle}" />
+			Style="{StaticResource TextBoxStyle}"
+			Text ="{Binding Path=Name}"/>
 
-		<DatePicker Name="datePickerBirthday" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsDropDownOpen="False" SelectedDateFormat="Short"> 
+		<DatePicker Name="datePickerBirthday" 
+		            Grid.Row="2" 
+		            Grid.Column="1" 
+		            VerticalAlignment="Center" 
+		            IsDropDownOpen="False" 
+		            SelectedDateFormat="Short"
+		            Text ="{Binding Path=DateBirth}"> 
 			<DatePicker.Resources>
 				<Style TargetType="DatePickerTextBox">
 					<Setter Property="IsReadOnly" Value="True"/>
@@ -78,17 +88,20 @@
 			x:Name="textBoxPhone"
 			Grid.Row="3"
 			Grid.Column="1"
-			Style="{StaticResource TextBoxStyle}" />
+			Style="{StaticResource TextBoxStyle}"
+			Text ="{Binding Path=Number.Number}"/>
 		<TextBox
 			x:Name="textBoxEmail"
 			Grid.Row="4"
 			Grid.Column="1"
-			Style="{StaticResource TextBoxStyle}" />
+			Style="{StaticResource TextBoxStyle}"
+			Text ="{Binding Path=Email}"/>
 		<TextBox
 			x:Name="textBoxVK"
 			Grid.Row="5"
 			Grid.Column="1"
-			Style="{StaticResource TextBoxStyle}" />
+			Style="{StaticResource TextBoxStyle}"
+			Text ="{Binding Path=Name}"/>
 
 	</Grid>
 </UserControl>

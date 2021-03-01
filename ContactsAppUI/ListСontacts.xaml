@@ -5,6 +5,8 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:ContactsAppUI"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
+	d:DataContext="{d:DesignInstance viewModel:ListСontactsVM}"
 	d:DesignHeight="450"
 	d:DesignWidth="800"
 	mc:Ignorable="d">
@@ -57,9 +59,21 @@
 		</StackPanel>
 
 		<ListBox
+			ItemsSource="{Binding Contacts}"
+			SelectedItem="{Binding SelectedContact}"
 			Name="ContactList"
 			Grid.Row="1"
 			Margin="5"
-			ScrollViewer.VerticalScrollBarVisibility="Visible" />
+			ScrollViewer.VerticalScrollBarVisibility="Visible">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Margin="5" Orientation="Horizontal">
+						<TextBlock Text="{Binding Path=Surname}" />
+						<TextBlock Text=" " />
+						<TextBlock Text="{Binding Path=Name}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 	</Grid>
 </UserControl>

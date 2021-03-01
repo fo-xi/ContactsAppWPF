@@ -148,5 +148,15 @@
   <ItemGroup>
     <Resource Include="Resources\app.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsApp\ContactsApp.csproj">
+      <Project>{0d624375-7d3f-4027-8fa9-18ca03cc7302}</Project>
+      <Name>ContactsApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{36df1e21-a57d-4008-aab0-22989ac3df1b}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
