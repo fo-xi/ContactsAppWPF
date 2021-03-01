@@ -51,6 +51,7 @@
 			Margin="5,5,10,5"
 			VerticalAlignment="Top"
 			DataContext="{Binding Path=ListСontacts.SelectedContact}"/>
-		<local:Birthday Grid.Row="2" Grid.Column="1" />
+		<local:Birthday Grid.Row="2" Grid.Column="1" 
+		                DataContext="{Binding Path=Birthday}"      />
 	</Grid>
 </Window>

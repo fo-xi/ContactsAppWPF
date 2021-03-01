@@ -67,7 +67,7 @@
 			ScrollViewer.VerticalScrollBarVisibility="Visible">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel Margin="5" Orientation="Horizontal">
+					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="{Binding Path=Surname}" />
 						<TextBlock Text=" " />
 						<TextBlock Text="{Binding Path=Name}" />
