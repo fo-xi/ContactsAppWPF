@@ -7,15 +7,35 @@ using ContactsApp;
 namespace ViewModel
 {
     public class ListСontactsVM : INotifyPropertyChanged
-
     {
+        private string _findText;
+
         private Contact _selectedContact;
 
         public ObservableCollection<Contact> Contacts { get; set; }
 
+        public ObservableCollection<Contact> FoundСontacts { get; set; }
+
+        public string FindText
+        {
+            get
+            {
+                return _findText;
+            }
+            set
+            {
+
+                _findText = value;
+                TextChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         public Contact SelectedContact
         {
-            get { return _selectedContact; }
+            get
+            {
+                return _selectedContact;
+            }
             set
             {
                 _selectedContact = value;
@@ -48,5 +68,7 @@ namespace ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public event EventHandler TextChanged;
     }
 }

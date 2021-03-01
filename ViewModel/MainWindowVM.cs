@@ -37,6 +37,13 @@ namespace ViewModel
             ListСontacts = new ListСontactsVM();
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             Birthday = new BirthdayVM(listBirthContacts);
+            ListСontacts.TextChanged += OnTextChanged;
+        }
+
+        private void OnTextChanged(object sender, EventArgs e)
+        {
+            var model = (ListСontactsVM)sender;
+            model.Contacts = new ObservableCollection<Contact>(_project.SortingContacts(model.FindText));
         }
     }
 }
