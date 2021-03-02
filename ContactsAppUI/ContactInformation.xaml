@@ -101,7 +101,7 @@
 			Grid.Row="5"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=Name}"/>
+			Text ="{Binding Path=VKID}"/>
 
 	</Grid>
 </UserControl>
