@@ -54,7 +54,13 @@ namespace ViewModel
             }
         }
 
-        public ListСontactsVM(ObservableCollection<Contact> contacts)
+        public Commands Add { get; set; }
+
+        public Commands Remove { get; set; }
+
+        public Commands Edit { get; set; }
+
+        public ListСontactsVM(ObservableCollection<Contact> contacts = null)
         {
             Contacts = contacts;
         }

@@ -41,8 +41,8 @@ namespace ViewModel
 
         private void OnTextChanged(object sender, EventArgs e)
         {
-            var model = (ListСontactsVM)sender;
-            model.Contacts = _project.SortingContacts(model.FindText);
+            var control = (ListСontactsVM)sender;
+            control.Contacts = _project.SortingContacts(control.FindText);
         }
     }
 }

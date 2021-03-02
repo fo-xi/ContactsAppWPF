@@ -25,7 +25,30 @@ namespace ContactsAppUI
         {
             InitializeComponent();
 
-            DataContext = new MainWindowVM();
+            var mainWindow = new MainWindowVM();
+
+            mainWindow.ListСontacts.Add = new Commands(Add);
+
+            DataContext = mainWindow;
+        }
+        private void Add(object sender)
+        {
+            AddEditContact addEditWindow = new AddEditContact();
+            addEditWindow.Show();
+
+            var m = (MainWindowVM) DataContext;
+            var k = ()
+            m.ListСontacts.Contacts.Add(addEditWindow.DataContext.);
+        }
+
+        private void Remove(object sender)
+        {
+
+        }
+
+        private void Edit(object sender)
+        {
+
         }
     }
 }

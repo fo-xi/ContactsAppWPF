@@ -39,19 +39,23 @@
 			Grid.Row="2"
 			Margin="5"
 			Orientation="Horizontal">
-			<Button Margin="0,3,3,3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+			<Button Margin="0,3,3,3" 
+			        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+			        Command="{Binding Add}">
 				<Image
 					Width="20"
 					Height="20"
 					Source="/Resources/add.png" />
 			</Button>
-			<Button Margin="3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+			<Button Margin="3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+			        Command="{Binding Edit}">
 				<Image
 					Width="20"
 					Height="20"
 					Source="/Resources/edit.png" />
 			</Button>
-			<Button Margin="3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+			<Button Margin="3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+			        Command="{Binding Remove}">
 				<Image
 					Width="20"
 					Height="20"
