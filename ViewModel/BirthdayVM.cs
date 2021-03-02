@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,12 @@ namespace ViewModel
     {
         public string ListBirthdayContact { get; set; }
 
-        public BirthdayVM(List<Contact> contacts)
+        public BirthdayVM(ObservableCollection<Contact> contacts)
         {
             ListBirthdayContact = GetString(contacts);
         }
 
-        private string GetString(List<Contact> contacts)
+        private string GetString(ObservableCollection<Contact> contacts)
         {
             string stringContacts = string.Empty;
 

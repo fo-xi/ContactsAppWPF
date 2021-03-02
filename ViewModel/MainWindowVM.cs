@@ -10,7 +10,7 @@ namespace ViewModel
 {
     public class MainWindowVM
     {
-        public Project _project;
+        private Project _project = new Project();
 
         public BirthdayVM Birthday { get; set; }
 
@@ -18,8 +18,7 @@ namespace ViewModel
 
         public MainWindowVM()
         {
-            _project = ProjectManager.ReadFromFile();
-            _project.Contacts = new List<Contact>
+            _project.Contacts = new ObservableCollection<Contact>
             {
                 new Contact("Sasha", "Dyagay",
                     new PhoneNumber("79234657789"),
@@ -34,7 +33,7 @@ namespace ViewModel
                     new DateTime(2005, 3, 10),
                     "imjtm@jmnl.com", "486745")
             };
-            ListСontacts = new ListСontactsVM();
+            ListСontacts = new ListСontactsVM(_project.Contacts);
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             Birthday = new BirthdayVM(listBirthContacts);
             ListСontacts.TextChanged += OnTextChanged;
@@ -43,7 +42,7 @@ namespace ViewModel
         private void OnTextChanged(object sender, EventArgs e)
         {
             var model = (ListСontactsVM)sender;
-            model.Contacts = new ObservableCollection<Contact>(_project.SortingContacts(model.FindText));
+            model.Contacts = _project.SortingContacts(model.FindText);
         }
     }
 }

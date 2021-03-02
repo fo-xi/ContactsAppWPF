@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
-using System.Linq;
+ using System.Collections.ObjectModel;
+ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,14 +16,14 @@ namespace ContactsApp
         /// <summary>
         /// Stores a list of all contacts created in the app.
         /// </summary>
-        public List<Contact> Contacts { get; set; } = new List<Contact>();
+        public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
 
         /// <summary>
 		/// Sorts contacts by the first letter of their last name.
 		/// </summary>
-        public List<Contact> SortingContacts()
+        public ObservableCollection<Contact> SortingContacts()
         {
-            var contacts = new List<Contact>();
+            var contacts = new ObservableCollection<Contact>();
             var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
             foreach (var i in sortedContacts)
             {
@@ -36,9 +37,9 @@ namespace ContactsApp
         /// or first name contains the specified substring.
 		/// </summary>
         /// <param name="substring">First or last name substring.</param>
-        public List<Contact> SortingContacts(string substring)
+        public ObservableCollection<Contact> SortingContacts(string substring)
         {
-            var contacts = new List<Contact>();
+            var contacts = new ObservableCollection<Contact>();
             var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
 
             foreach (var i in sortedContacts)
@@ -56,9 +57,9 @@ namespace ContactsApp
         /// matches the date in the input argument
         /// </summary>
         /// /// <param name="dateBirth">Date of birth.</param>
-        public List<Contact> GetDateBirth(DateTime dateBirth)
+        public ObservableCollection<Contact> GetDateBirth(DateTime dateBirth)
         {
-            var dateBirthContacts = new List<Contact>();
+            var dateBirthContacts = new ObservableCollection<Contact>();
 
             foreach (var i in Contacts)
             {
