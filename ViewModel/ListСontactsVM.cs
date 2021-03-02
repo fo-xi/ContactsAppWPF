@@ -10,11 +10,22 @@ namespace ViewModel
     {
         private string _findText;
 
+        public ObservableCollection<Contact> _contacts;
+
         private Contact _selectedContact;
 
-        public ObservableCollection<Contact> Contacts { get; set; }
-
-        public ObservableCollection<Contact> FoundСontacts { get; set; }
+        public ObservableCollection<Contact> Contacts 
+        {
+            get
+            {
+                return _contacts;
+            }
+            set
+            {
+                _contacts = value;
+                OnPropertyChanged("Contacts");
+            }
+        }
 
         public string FindText
         {

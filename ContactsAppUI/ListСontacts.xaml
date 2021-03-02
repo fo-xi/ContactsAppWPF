@@ -27,11 +27,12 @@
 				Margin="5"
 				HorizontalAlignment="Right"
 				VerticalAlignment="Center"
-				Text="Find:" />
+				Text="Find:"/>
 			<TextBox
 				x:Name="textBoxFind"
 				Grid.Column="1"
-				VerticalAlignment="Center" />
+				VerticalAlignment="Center" 
+				Text ="{Binding FindText ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 		</Grid>
 
 		<StackPanel
