@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ContactsApp;
+using ViewModel;
 
 namespace ContactsAppUI
 {
@@ -22,6 +24,26 @@ namespace ContactsAppUI
         public AddEditContact()
         {
             InitializeComponent();
+
+            var addEditContact = new AddEditContactVM(new Contact());
+
+            addEditContact.OK = new Commands(OK);
+
+            addEditContact.Cancel = new Commands(Cancel);
+
+            DataContext = addEditContact;
+        }
+
+        private void OK(object sender)
+        {
+            DialogResult = true;
+            Close();
+        }
+
+        private void Cancel(object sender)
+        {
+            DialogResult = false;
+            Close();
         }
     }
 }

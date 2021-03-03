@@ -149,6 +149,13 @@ namespace ContactsApp
             Email = email;
             VKID = vkID;
         }
+
+        public Contact()
+        {
+            Number = new PhoneNumber();
+            DateBirth = DateTime.Now;
+        }
+
         /// <summary>
         /// Makes a copy of the object <see cref="Contact"/>
         /// </summary>

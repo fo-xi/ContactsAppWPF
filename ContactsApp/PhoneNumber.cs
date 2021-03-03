@@ -42,5 +42,10 @@ namespace ContactsApp
         {
             this.Number = number;
         }
+
+        public PhoneNumber()
+        {
+
+        }
     }
 }

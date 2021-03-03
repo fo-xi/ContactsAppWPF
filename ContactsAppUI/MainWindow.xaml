@@ -27,15 +27,15 @@
 
 		<Menu Grid.ColumnSpan="2" VerticalAlignment="Top">
 			<MenuItem Header="File">
-				<MenuItem Header="Exit" />
+				<MenuItem Header="Exit" x:Name="Exit"/>
 			</MenuItem>
 			<MenuItem Header="Edit">
-				<MenuItem Header="Add Contact" />
-				<MenuItem Header="Edit Contact" />
-				<MenuItem Header="Remove Contact" />
+				<MenuItem Header="Add Contact" x:Name="AddContact"/>
+				<MenuItem Header="Edit Contact" x:Name="EditContact"/>
+				<MenuItem Header="Remove Contact" x:Name="RemoveContact"/>
 			</MenuItem>
 			<MenuItem Header="Help">
-				<MenuItem Header="About" />
+				<MenuItem Header="About" x:Name="About"/>
 			</MenuItem>
 		</Menu>
 

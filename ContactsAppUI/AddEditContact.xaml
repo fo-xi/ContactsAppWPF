@@ -4,15 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsAppUI"
+        xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Add/EditContact" Height="250" Width="500" ResizeMode="NoResize">
+        Title="Add/EditContact" Height="250" Width="500" ResizeMode="NoResize" 
+        d:DataContext="{d:DesignInstance viewModel:AddEditContactVM }">
     <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 
-	    <local:ContactInformation Grid.Column="1" Margin ="5"/>
+	    <local:ContactInformation Grid.Column="1"
+	                              Margin ="5"
+	                              DataContext="{Binding Path=Contact}"/>
 
 		<Grid
 		    Grid.Row="1"
@@ -22,8 +26,8 @@
 				<ColumnDefinition SharedSizeGroup="button"/>
 				<ColumnDefinition SharedSizeGroup="button"/>
 			</Grid.ColumnDefinitions>
-			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" Margin="5"/>
-			<Button Grid.Column="1" x:Name="buttonCancel" Margin="5">
+			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" Margin="5" Command="{Binding Path =OK }"/>
+			<Button Grid.Column="1" x:Name="buttonCancel" Margin="5" Command ="{Binding Path=Cancel}">
 				<ContentControl>
 					<TextBlock Margin="5 0 5 0" Text="Cancel" />
 				</ContentControl>
