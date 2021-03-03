@@ -15,7 +15,9 @@ namespace ViewModel
 
         private Contact _selectedContact;
 
-        public ObservableCollection<Contact> Contacts 
+        public ObservableCollection<Contact> Contacts { get; set; }
+
+        public ObservableCollection<Contact> FindContacts
         {
             get
             {
@@ -24,7 +26,7 @@ namespace ViewModel
             set
             {
                 _contacts = value;
-                OnPropertyChanged("Contacts");
+                OnPropertyChanged("FindContacts");
             }
         }
 
@@ -63,7 +65,7 @@ namespace ViewModel
 
         public ListСontactsVM(ObservableCollection<Contact> contacts = null)
         {
-            Contacts = contacts;
+             Contacts = FindContacts = contacts;
         }
 
         public event EventHandler TextChanged;

@@ -64,7 +64,7 @@
 		</StackPanel>
 
 		<ListBox
-			ItemsSource="{Binding Contacts}"
+			ItemsSource="{Binding FindContacts}"
 			SelectedItem="{Binding SelectedContact}"
 			Name="ContactList"
 			Grid.Row="1"
