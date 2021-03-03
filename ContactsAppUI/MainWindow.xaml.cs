@@ -54,16 +54,30 @@ namespace ContactsAppUI
         private void Remove(object sender)
         {
             var mainWindow = (MainWindowVM)DataContext;
-            mainWindow.ListСontacts.Contacts.Remove(mainWindow.ListСontacts.SelectedContact);
+            var selectedContact = mainWindow.ListСontacts.SelectedContact;
+
+            if (selectedContact == null)
+            {
+                MessageBox.Show($"Select Contact!");
+                return;
+            }
+
+            mainWindow.ListСontacts.Contacts.Remove(selectedContact);
         }
 
         private void Edit(object sender)
         {
             var mainWindow = (MainWindowVM)DataContext;
+            var selectedContact = mainWindow.ListСontacts.SelectedContact;
+
+            if (selectedContact == null)
+            {
+                MessageBox.Show($"Select Contact!");
+                return;
+            }
 
             AddEditContact addEditWindow = new AddEditContact();
 
-            var selectedContact = mainWindow.ListСontacts.SelectedContact;
             var edit = (AddEditContactVM)addEditWindow.DataContext;
             edit.Contact = (Contact)selectedContact.Clone();
 
@@ -82,6 +96,8 @@ namespace ContactsAppUI
 
         private void ExitMainWindow(object sender)
         {
+            var mainWindow = new MainWindowVM();
+            mainWindow.Save();
             Close();
         }
     }

@@ -39,6 +39,11 @@ namespace ViewModel
             ListСontacts.TextChanged += OnTextChanged;
         }
 
+        public void Save()
+        {
+            ProjectManager.WriteToFile(_project);
+        }
+
         private void OnTextChanged(object sender, EventArgs e)
         {
             var control = (ListСontactsVM)sender;
