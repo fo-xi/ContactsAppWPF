@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ContactsApp;
+using ViewModel.Annotations;
 
 namespace ViewModel
 {
@@ -65,13 +66,12 @@ namespace ViewModel
             Contacts = contacts;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler TextChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public event EventHandler TextChanged;
     }
 }

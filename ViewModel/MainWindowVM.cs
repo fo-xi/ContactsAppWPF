@@ -20,8 +20,10 @@ namespace ViewModel
         {
             _project = ProjectManager.ReadFromFile();
             ListСontacts = new ListСontactsVM(_project.Contacts);
+
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             Birthday = new BirthdayVM(listBirthContacts);
+
             ListСontacts.TextChanged += OnTextChanged;
         }
 

@@ -55,23 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="About.xaml">
+    <Page Include="Windows\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddEditContact.xaml">
+    <Page Include="Windows\AddEditContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Birthday.xaml">
+    <Page Include="Controls\Birthday.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ContactInformation.xaml">
+    <Page Include="Controls\ContactInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListСontacts.xaml">
+    <Page Include="Controls\ListСontacts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,30 +79,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="About.xaml.cs">
+    <Compile Include="Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddEditContact.xaml.cs">
+    <Compile Include="Windows\AddEditContact.xaml.cs">
       <DependentUpon>AddEditContact.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Birthday.xaml.cs">
+    <Compile Include="Controls\Birthday.xaml.cs">
       <DependentUpon>Birthday.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ContactInformation.xaml.cs">
+    <Compile Include="Controls\ContactInformation.xaml.cs">
       <DependentUpon>ContactInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListСontacts.xaml.cs">
+    <Compile Include="Controls\ListСontacts.xaml.cs">
       <DependentUpon>ListСontacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Styles.xaml">
+    <Page Include="Styles\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,5 +158,6 @@
       <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

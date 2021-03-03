@@ -11,7 +11,7 @@ namespace ContactsApp
     /// <summary>
     /// A class containing all information about the contact.
     /// </summary>
-    public class Contact : ICloneable, INotifyPropertyChanged
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Contact's surname.
@@ -51,7 +51,6 @@ namespace ContactsApp
             {
                 Validator.AssertStringLength(value, 1, 50);
                 _surname = Validator.MakeUpperCase(value);
-                OnPropertyChanged("Surname");
             }
         }
 
@@ -68,7 +67,6 @@ namespace ContactsApp
             {
                 Validator.AssertStringLength(value, 1, 50);
                 _name = Validator.MakeUpperCase(value);
-                OnPropertyChanged("Name");
             }
         }
 
@@ -91,7 +89,6 @@ namespace ContactsApp
             {
                 Validator.AssertDateBirth(value, 1900);
                 _dateBirth = value;
-                OnPropertyChanged("DateBirth");
             }
         }
 
@@ -108,7 +105,6 @@ namespace ContactsApp
             {
                 Validator.AssertStringLength(value, 1, 50);
                 _email = value;
-                OnPropertyChanged("Email");
             }
         }
 
@@ -125,7 +121,6 @@ namespace ContactsApp
             {
                 Validator.AssertStringLength(value, 1, 15);
                 _vkID = value;
-                OnPropertyChanged("VKID");
             }
         }
 
@@ -164,13 +159,6 @@ namespace ContactsApp
             return new Contact(Surname = this.Surname, Name = this.Name,
                 Number = this.Number, DateBirth = this.DateBirth,
                 Email = this.Email, VKID = this.VKID);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

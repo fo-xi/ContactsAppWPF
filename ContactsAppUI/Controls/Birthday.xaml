@@ -23,7 +23,7 @@
 			HorizontalAlignment="Center"
 			VerticalAlignment="Center">
 			<Image.Source>
-				<FormatConvertedBitmap Source="Resources/Symbol.png" />
+				<FormatConvertedBitmap Source="../Resources/Symbol.png" />
 			</Image.Source>
 		</Image>
 		<StackPanel Grid.Column="1" 
