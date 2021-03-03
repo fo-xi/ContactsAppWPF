@@ -22,23 +22,25 @@ namespace ContactsAppUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowVM _mainWindow = new MainWindowVM();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            var mainWindow = new MainWindowVM();
+            _mainWindow.ListСontacts.Add = new Commands(Add);
+            _mainWindow.ListСontacts.Remove = new Commands(Remove);
+            _mainWindow.ListСontacts.Edit = new Commands(Edit);
 
-            mainWindow.ListСontacts.Add = new Commands(Add);
-            mainWindow.ListСontacts.Remove = new Commands(Remove);
-            mainWindow.ListСontacts.Edit = new Commands(Edit);
-
-            DataContext = mainWindow;
+            DataContext = _mainWindow;
 
             About.Command = new Commands(OpenAbout);
             Exit.Command = new Commands(ExitMainWindow);
             AddContact.Command = new Commands(Add);
             EditContact.Command = new Commands(Edit);
             RemoveContact.Command = new Commands(Remove);
+
+            Closing += ClosingMainWindow;
         }
         private void Add(object sender)
         {
@@ -96,9 +98,13 @@ namespace ContactsAppUI
 
         private void ExitMainWindow(object sender)
         {
-            var mainWindow = new MainWindowVM();
-            mainWindow.Save();
+            _mainWindow.Save();
             Close();
+        }
+
+        private void ClosingMainWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _mainWindow.Save();
         }
     }
 }

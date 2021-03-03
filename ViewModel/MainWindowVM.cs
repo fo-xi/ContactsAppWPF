@@ -18,21 +18,7 @@ namespace ViewModel
 
         public MainWindowVM()
         {
-            _project.Contacts = new ObservableCollection<Contact>
-            {
-                new Contact("Sasha", "Dyagay",
-                    new PhoneNumber("79234657789"),
-                    DateTime.Now,
-                    "jnglsnl@kmh.com", "895974"),
-                new Contact("Dasha", "Koko",
-                    new PhoneNumber("79456735567"),
-                    DateTime.Now,
-                    "nmhlrt@jmnl.com", "83963"),
-                new Contact("Masha", "Goktr",
-                    new PhoneNumber("79237568844"),
-                    new DateTime(2005, 3, 10),
-                    "imjtm@jmnl.com", "486745")
-            };
+            _project = ProjectManager.ReadFromFile();
             ListСontacts = new ListСontactsVM(_project.Contacts);
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             Birthday = new BirthdayVM(listBirthContacts);
