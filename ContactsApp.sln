@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppUI", "ContactsAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{36DF1E21-A57D-4008-AAB0-22989AC3DF1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{2DA424BB-FD75-42D3-9B74-096051CE5B9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{36DF1E21-A57D-4008-AAB0-22989AC3DF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36DF1E21-A57D-4008-AAB0-22989AC3DF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36DF1E21-A57D-4008-AAB0-22989AC3DF1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA424BB-FD75-42D3-9B74-096051CE5B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA424BB-FD75-42D3-9B74-096051CE5B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA424BB-FD75-42D3-9B74-096051CE5B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA424BB-FD75-42D3-9B74-096051CE5B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
