@@ -62,13 +62,13 @@
 			Grid.Row="0"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=Surname}"/>
+			Text ="{Binding Surname}"/>
 		<TextBox
 			x:Name="textBoxName"
 			Grid.Row="1"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=Name}"/>
+			Text ="{Binding Name}"/>
 
 		<DatePicker Name="datePickerBirthday" 
 		            Grid.Row="2" 
@@ -76,7 +76,7 @@
 		            VerticalAlignment="Center" 
 		            IsDropDownOpen="False" 
 		            SelectedDateFormat="Short"
-		            Text ="{Binding Path=DateBirth}"> 
+		            Text ="{Binding DateBirth}"> 
 			<DatePicker.Resources>
 				<Style TargetType="DatePickerTextBox">
 					<Setter Property="IsReadOnly" Value="True"/>
@@ -89,19 +89,19 @@
 			Grid.Row="3"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=Number.Number}"/>
+			Text ="{Binding Number.Number}"/>
 		<TextBox
 			x:Name="textBoxEmail"
 			Grid.Row="4"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=Email}"/>
+			Text ="{Binding Email}"/>
 		<TextBox
 			x:Name="textBoxVK"
 			Grid.Row="5"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Path=VKID}"/>
+			Text ="{Binding VKID}"/>
 
 	</Grid>
 </UserControl>

@@ -44,15 +44,15 @@
 			Grid.RowSpan="2"
 			Grid.Column="0"
 			Margin="5,0,0,0"
-			DataContext="{Binding Path=ListСontacts}"/>
+			DataContext="{Binding ListСontacts}"/>
 		<local:ContactInformation
 			Grid.Row="1"
 			Grid.Column="1"
 			Margin="5,5,10,5"
 			VerticalAlignment="Top"
 			IsEnabled="False"
-			DataContext="{Binding Path=ListСontacts.SelectedContact}" />
+			DataContext="{Binding ListСontacts.SelectedContact}" />
 		<local:Birthday Grid.Row="2" Grid.Column="1" 
-		                DataContext="{Binding Path=Birthday}" />
+		                DataContext="{Binding Birthday}" />
 	</Grid>
 </Window>

@@ -26,7 +26,7 @@ namespace ViewModel
             set
             {
                 _contacts = value;
-                OnPropertyChanged("FindContacts");
+                OnPropertyChanged(nameof(FindContacts));
             }
         }
 
@@ -53,7 +53,7 @@ namespace ViewModel
             set
             {
                 _selectedContact = value;
-                OnPropertyChanged("SelectedContact");
+                OnPropertyChanged(nameof(SelectedContact));
             }
         }
 

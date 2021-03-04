@@ -47,9 +47,9 @@ namespace ContactsAppUI
             AddEditContact addEditWindow = new AddEditContact();
             if (addEditWindow.ShowDialog() == true)
             {
-                var mainWindow = (MainWindowVM) DataContext;
-                var add = (AddEditContactVM) addEditWindow.DataContext;
-                mainWindow.ListСontacts.Contacts.Add(add.Contact);
+                var mainWindow = (MainWindowVM)DataContext;
+                var add = (AddEditContactVM)addEditWindow.DataContext;
+                mainWindow.ListСontacts.Contacts.Add(add.AddEditContact);
             }
         }
 
@@ -60,7 +60,7 @@ namespace ContactsAppUI
 
             if (selectedContact == null)
             {
-                MessageBox.Show($"Select Contact!");
+                MessageBox.Show($"Select AddEditContact!");
                 return;
             }
 
@@ -74,19 +74,19 @@ namespace ContactsAppUI
 
             if (selectedContact == null)
             {
-                MessageBox.Show($"Select Contact!");
+                MessageBox.Show($"Select AddEditContact!");
                 return;
             }
 
             AddEditContact addEditWindow = new AddEditContact();
 
             var edit = (AddEditContactVM)addEditWindow.DataContext;
-            edit.Contact = (Contact)selectedContact.Clone();
+            edit.AddEditContact = (Contact)selectedContact.Clone();
 
             if (addEditWindow.ShowDialog() == true)
             {
                 var index = mainWindow.ListСontacts.Contacts.IndexOf(selectedContact);
-                mainWindow.ListСontacts.Contacts[index] = edit.Contact;
+                mainWindow.ListСontacts.Contacts[index] = edit.AddEditContact;
             }
         }
 

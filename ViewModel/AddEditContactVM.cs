@@ -9,15 +9,15 @@ namespace ViewModel
 {
     public class AddEditContactVM
     {
-        public Contact Contact { get; set; }
+        public Contact AddEditContact { get; set; }
 
         public Commands OK { get; set; }
 
         public Commands Cancel { get; set; }
 
-        public AddEditContactVM(Contact contact)
+        public AddEditContactVM(Contact addEditContact)
         {
-            Contact = contact;
+            AddEditContact = addEditContact;
         }
     }
 }

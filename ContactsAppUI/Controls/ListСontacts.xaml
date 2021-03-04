@@ -73,9 +73,9 @@
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="{Binding Path=Surname}" />
+						<TextBlock Text="{Binding Surname}" />
 						<TextBlock Text=" " />
-						<TextBlock Text="{Binding Path=Name}" />
+						<TextBlock Text="{Binding Name}" />
 					</StackPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>

@@ -16,7 +16,7 @@
 
 	    <local:ContactInformation Grid.Column="1"
 	                              Margin ="5"
-	                              DataContext="{Binding Path=Contact}"/>
+	                              DataContext="{Binding AddEditContact}"/>
 
 		<Grid
 		    Grid.Row="1"
@@ -26,8 +26,10 @@
 				<ColumnDefinition SharedSizeGroup="button"/>
 				<ColumnDefinition SharedSizeGroup="button"/>
 			</Grid.ColumnDefinitions>
-			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" Margin="5" Command="{Binding Path =OK }"/>
-			<Button Grid.Column="1" x:Name="buttonCancel" Margin="5" Command ="{Binding Path=Cancel}">
+			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" 
+			        Margin="5" Command="{Binding OK}"/>
+			<Button Grid.Column="1" x:Name="buttonCancel" 
+			        Margin="5" Command ="{Binding Cancel}">
 				<ContentControl>
 					<TextBlock Margin="5 0 5 0" Text="Cancel" />
 				</ContentControl>
