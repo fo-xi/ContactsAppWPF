@@ -11,7 +11,7 @@ namespace ContactsApp
     /// <summary>
     /// Class containing information about the phone number.
     /// </summary>
-    public class PhoneNumber
+    public class PhoneNumber : IDataErrorInfo
     {
         /// <summary>
         /// Contains information about the phone number.
@@ -29,7 +29,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertPhoneNumber(value);
                 _number = value;
             }
         }
@@ -43,9 +42,39 @@ namespace ContactsApp
             this.Number = number;
         }
 
+        /// <summary>
+        /// Creates a phone number.
+        /// </summary>
         public PhoneNumber()
         {
-
+            Number = String.Empty;
         }
+
+        /// <summary>
+        /// Data validation.
+        /// </summary>
+        /// <param name="PropertyName">Property name.</param>
+        /// <returns></returns>
+        public string this[string PropertyName]
+        {
+            get
+            {
+                string error = String.Empty;
+                switch (PropertyName)
+                {
+                    case "Number":
+                    {
+                        error = Validator.AssertPhoneNumber(Number);
+                        break;
+                    }
+                }
+                return error;
+            }
+        }
+
+        /// <summary>
+        /// Returns error.
+        /// </summary>
+        public string Error { get; }
     }
 }

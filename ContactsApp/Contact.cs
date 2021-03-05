@@ -11,7 +11,7 @@ namespace ContactsApp
     /// <summary>
     /// A class containing all information about the contact.
     /// </summary>
-    public class Contact : ICloneable
+    public class Contact : ICloneable, IDataErrorInfo
     {
         /// <summary>
         /// Contact's surname.
@@ -39,6 +39,53 @@ namespace ContactsApp
         private string _vkID;
 
         /// <summary>
+        /// Data validation.
+        /// </summary>
+        /// <param name="PropertyName">Property name.</param>
+        /// <returns></returns>
+        public string this[string PropertyName]
+        {
+            get
+            {
+                string error = String.Empty;
+                switch (PropertyName)
+                {
+                    case "Surname":
+                    {
+                        error = Validator.AssertStringLength(Surname, 1, 50);
+                        break;
+                    }
+                    case "Name":
+                    {
+                        error = Validator.AssertStringLength(Name, 1, 50);
+                        break;
+                    }
+                    case "DateBirth":
+                    {
+                        error = Validator.AssertDateBirth(DateBirth, 1900);
+                        break;
+                    }
+                    case "Email":
+                    {
+                        error = Validator.AssertStringLength(Email, 1, 50);
+                        break;
+                    }
+                    case "VKID":
+                    {
+                        error = Validator.AssertStringLength(VKID, 1, 15);
+                        break;
+                    }
+                }
+                return error;
+            }
+        }
+
+        /// <summary>
+        /// Returns error.
+        /// </summary>
+        public string Error { get; }
+
+        /// <summary>
         /// Returns and sets the contact's surname.
         /// </summary>
         public string Surname
@@ -49,7 +96,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertStringLength(value, 1, 50);
                 _surname = Validator.MakeUpperCase(value);
             }
         }
@@ -65,7 +111,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertStringLength(value, 1, 50);
                 _name = Validator.MakeUpperCase(value);
             }
         }
@@ -87,7 +132,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertDateBirth(value, 1900);
                 _dateBirth = value;
             }
         }
@@ -103,7 +147,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertStringLength(value, 1, 50);
                 _email = value;
             }
         }
@@ -119,7 +162,6 @@ namespace ContactsApp
             }
             set
             {
-                Validator.AssertStringLength(value, 1, 15);
                 _vkID = value;
             }
         }
@@ -145,10 +187,17 @@ namespace ContactsApp
             VKID = vkID;
         }
 
+        /// <summary>
+        /// Creates a contact.
+        /// </summary>
         public Contact()
         {
+            Name = String.Empty;
+            Surname = String.Empty;
             Number = new PhoneNumber();
             DateBirth = DateTime.Now;
+            Email = String.Empty;
+            VKID = String.Empty;
         }
 
         /// <summary>

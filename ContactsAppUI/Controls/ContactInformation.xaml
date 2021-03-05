@@ -62,13 +62,20 @@
 			Grid.Row="0"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Surname}"/>
+			Text ="{Binding Surname ,
+			ValidatesOnDataErrors=True, 
+			UpdateSourceTrigger=PropertyChanged}">
+		</TextBox>
+
 		<TextBox
 			x:Name="textBoxName"
 			Grid.Row="1"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Name}"/>
+			Text ="{Binding Name, 
+			ValidatesOnDataErrors=True, 
+			UpdateSourceTrigger=PropertyChanged}">
+		</TextBox>
 
 		<DatePicker Name="datePickerBirthday" 
 		            Grid.Row="2" 
@@ -76,7 +83,9 @@
 		            VerticalAlignment="Center" 
 		            IsDropDownOpen="False" 
 		            SelectedDateFormat="Short"
-		            Text ="{Binding DateBirth}"> 
+		            Text ="{Binding DateBirth, 
+							ValidatesOnDataErrors=True, 
+							UpdateSourceTrigger=PropertyChanged}"> 
 			<DatePicker.Resources>
 				<Style TargetType="DatePickerTextBox">
 					<Setter Property="IsReadOnly" Value="True"/>
@@ -89,19 +98,30 @@
 			Grid.Row="3"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Number.Number}"/>
+			Text ="{Binding Number.Number, 
+					ValidatesOnDataErrors=True, 
+					UpdateSourceTrigger=PropertyChanged}">
+		</TextBox>
+
 		<TextBox
 			x:Name="textBoxEmail"
 			Grid.Row="4"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding Email}"/>
+			Text ="{Binding Email, 
+					ValidatesOnDataErrors=True, 
+					UpdateSourceTrigger=PropertyChanged}">
+		</TextBox>
+
 		<TextBox
 			x:Name="textBoxVK"
 			Grid.Row="5"
 			Grid.Column="1"
 			Style="{StaticResource TextBoxStyle}"
-			Text ="{Binding VKID}"/>
+			Text ="{Binding VKID, 
+					ValidatesOnDataErrors=True, 
+					UpdateSourceTrigger=PropertyChanged}">
+		</TextBox>
 
 	</Grid>
 </UserControl>

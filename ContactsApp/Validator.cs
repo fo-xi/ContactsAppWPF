@@ -18,14 +18,16 @@ namespace ContactsApp
         /// <param name="value">Value set by the user.</param>
         /// <param name="initialLength">The beginning of the border.</param>
         /// <param name="finalLength">The end of the border.</param>
-        public static void AssertStringLength(string value,
+        public static string AssertStringLength(string value,
             int initialLength, int finalLength)
         {
+            string error = String.Empty; 
             if ((value.Length < initialLength) || (value.Length > finalLength))
             {
-                throw new ArgumentException("Value must be in the range from " +
-                                            initialLength + " to " + finalLength);
+                error = "Value must be in the range from " +
+                               initialLength + " to " + finalLength;
             }
+            return error;
         }
 
         /// <summary>
@@ -35,6 +37,10 @@ namespace ContactsApp
         /// <param name="value">Value set by the user.</param>
         public static string MakeUpperCase(string value)
         {
+            if (value == String.Empty)
+            {
+                return String.Empty;
+            }
             return (value.Substring(0, 1).ToUpper() +
                     value.Substring(1, value.Length - 1).ToLower());
         }
@@ -43,14 +49,15 @@ namespace ContactsApp
         /// Checking the phone number for the first digit.
         /// </summary>
         /// <param name="value">Phone number.</param>
-        public static void AssertPhoneNumber(string value)
+        public static string AssertPhoneNumber(string value)
         {
+            string error = String.Empty;
             if ((value.Length != 11) || (value[0] != '7'))
             {
-                throw new ArgumentException(value +
-                                            " The number must contain exactly 11" +
-                                            "digits and start with 7");
+                error = value + " The number must contain exactly 11" +
+                                            "digits and start with 7";
             }
+            return error;
         }
 
         /// <summary>
@@ -58,14 +65,16 @@ namespace ContactsApp
         /// </summary>
         /// <param name="value">Date of birth.</param>
         /// <param name="initialLength">Interval start.</param>
-        public static void AssertDateBirth(DateTime value,
+        public static string AssertDateBirth(DateTime value,
             int initialLength)
         {
+            string error = String.Empty;
             if ((value.Year < initialLength) || (value > DateTime.Now))
             {
-                throw new ArgumentException("Value must be in the range from" 
-                                            + " to " + DateTime.Now);
+                error = "Value must be in the range from" 
+                                            + " to " + DateTime.Now;
             }
+            return error;
         }
     }
 }
