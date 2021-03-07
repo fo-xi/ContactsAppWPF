@@ -85,6 +85,9 @@
 		            SelectedDateFormat="Short"
 		            Text ="{Binding DateBirth, 
 							ValidatesOnDataErrors=True, 
+							UpdateSourceTrigger=PropertyChanged}"
+		            SelectedDate ="{Binding DateBirth, 
+							ValidatesOnDataErrors=True, 
 							UpdateSourceTrigger=PropertyChanged}"> 
 			<DatePicker.Resources>
 				<Style TargetType="DatePickerTextBox">
