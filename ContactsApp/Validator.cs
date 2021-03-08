@@ -52,7 +52,7 @@ namespace ContactsApp
             if ((value.Length != 11) || (value[0] != '7'))
             {
                 throw new ArgumentException(value + 
-                       " The number must contain exactly 11" +
+                       " The number must contain exactly 11 " +
                       "digits and start with 7");
             }
         }

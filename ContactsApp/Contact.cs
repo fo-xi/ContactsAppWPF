@@ -170,19 +170,21 @@ namespace ContactsApp
             DateBirth = dateBirth;
             Email = email;
             VKID = vkID;
+            Number.PropertyChanged += PhoneNumberChanged;
+        }
+
+        private void PhoneNumberChanged(object sender, PropertyChangedEventArgs e)
+        {
+            HasErrors = true;
         }
 
         /// <summary>
         /// Creates a contact.
         /// </summary>
-        public Contact()
+        public Contact() : this(String.Empty, String.Empty,
+            new PhoneNumber(), DateTime.Now, String.Empty, String.Empty)
         {
-            Name = String.Empty;
-            Surname = String.Empty;
-            Number = new PhoneNumber();
-            DateBirth = DateTime.Now;
-            Email = String.Empty;
-            VKID = String.Empty;
+
         }
 
         /// <summary>
@@ -233,7 +235,7 @@ namespace ContactsApp
             }
             set
             {
-                _hasErrors = !_errorsByPropertyName.Any() && !Number.HasErrors;
+                _hasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
                 OnPropertyChanged(nameof(HasErrors));
             }
         }
