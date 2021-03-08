@@ -94,6 +94,8 @@ namespace ContactsApp
             }
         }
 
+        private PhoneNumber _number;
+
         /// <summary>
         /// Contact's number.
         /// </summary>
@@ -164,18 +166,18 @@ namespace ContactsApp
         public Contact(string surname, string name, PhoneNumber number,
                        DateTime dateBirth, string email, string vkID)
         {
+            Number = number;
+            Number.PropertyChanged += PhoneNumberChanged;
             Name = name;
             Surname = surname;
-            Number = number;
             DateBirth = dateBirth;
             Email = email;
             VKID = vkID;
-            Number.PropertyChanged += PhoneNumberChanged;
         }
 
         private void PhoneNumberChanged(object sender, PropertyChangedEventArgs e)
         {
-            HasErrors = true;
+            HasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
         }
 
         /// <summary>
@@ -235,7 +237,7 @@ namespace ContactsApp
             }
             set
             {
-                _hasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
+                _hasErrors = value;
                 OnPropertyChanged(nameof(HasErrors));
             }
         }
@@ -312,7 +314,7 @@ namespace ContactsApp
                 AddError(propertyName, e.Message);
             }
 
-            HasErrors = true;
+            HasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
         }
     }
     

@@ -22,7 +22,7 @@ namespace ViewModel
             }
             set
             {
-                _isEnabled = !AddEditContact.HasErrors;
+                _isEnabled = value;
                 OnPropertyChanged(nameof(IsEnabled));
             }
         }
@@ -41,13 +41,12 @@ namespace ViewModel
 
         private void ContactChanged(object sender, PropertyChangedEventArgs e)
         {
-            IsEnabled = true;
+            IsEnabled = !AddEditContact.HasErrors;
         }
-
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

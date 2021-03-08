@@ -49,7 +49,7 @@ namespace ContactsApp
                 }
 
                 _number = value;
-                HasErrors = true;
+                HasErrors = _errorsByPropertyName.Any();
                 OnPropertyChanged(nameof(Number));
             }
         }
@@ -110,7 +110,7 @@ namespace ContactsApp
             }
             set
             {
-                _hasErrors = _errorsByPropertyName.Any();
+                _hasErrors = value;
                 OnPropertyChanged(nameof(HasErrors));
             }
         }
