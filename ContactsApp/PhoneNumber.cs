@@ -1,22 +1,30 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using ContactsApp.Annotations;
 
 namespace ContactsApp
 {
     /// <summary>
     /// Class containing information about the phone number.
     /// </summary>
-    public class PhoneNumber : IDataErrorInfo
+    public class PhoneNumber : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         /// <summary>
         /// Contains information about the phone number.
         /// </summary>
         private string _number;
+
+        /// <summary>
+        /// Contains a dictionary of errors.
+        /// </summary>
+        private readonly Dictionary<string, List<string>> _errorsByPropertyName
+            = new Dictionary<string, List<string>>();
 
         /// <summary>
         /// Returns and sets the phone number.
@@ -29,7 +37,20 @@ namespace ContactsApp
             }
             set
             {
+                ClearErrors(nameof(Number));
+
+                try
+                {
+                    Validator.AssertPhoneNumber(value);
+                }
+                catch (ArgumentException e)
+                {
+                    AddError(nameof(Number), e.Message);
+                }
+
                 _number = value;
+                HasErrors = true;
+                OnPropertyChanged(nameof(Number));
             }
         }
 
@@ -51,30 +72,92 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Data validation.
+        /// Event that will react to changes in the property 
         /// </summary>
-        /// <param name="PropertyName">Property name.</param>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Event triggering.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets all error messages.
+        /// </summary>
+        /// <param name="propertyName">Property Name.</param>
         /// <returns></returns>
-        public string this[string PropertyName]
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return _errorsByPropertyName.ContainsKey(propertyName) ?
+                _errorsByPropertyName[propertyName] : null;
+        }
+
+        private bool _hasErrors;
+
+        /// <summary>
+        ///  Property indicates whether there are any validation errors.
+        /// </summary>
+        public bool HasErrors
         {
             get
             {
-                string error = String.Empty;
-                switch (PropertyName)
-                {
-                    case "Number":
-                    {
-                        error = Validator.AssertPhoneNumber(Number);
-                        break;
-                    }
-                }
-                return error;
+
+                return _hasErrors;
+            }
+            set
+            {
+                _hasErrors = _errorsByPropertyName.Any();
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
         /// <summary>
-        /// Returns error.
+        /// Event must occur when the validation errors have changed
+        /// for a property or for the entity.
         /// </summary>
-        public string Error { get; }
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        /// <summary>
+        /// Event triggering.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void OnErrorsChanged(string propertyName)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Adds an error message to the error dictionary.
+        /// </summary>
+        /// <param name="propertyName">Property Name.</param>
+        /// <param name="error">Error message.</param>
+        private void AddError(string propertyName, string error)
+        {
+            if (!_errorsByPropertyName.ContainsKey(propertyName))
+                _errorsByPropertyName[propertyName] = new List<string>();
+
+            if (!_errorsByPropertyName[propertyName].Contains(error))
+            {
+                _errorsByPropertyName[propertyName].Add(error);
+                OnErrorsChanged(propertyName);
+            }
+        }
+
+        /// <summary>
+        /// Removes all errors by key.
+        /// </summary>
+        /// <param name="propertyName">Property Name.</param>
+        private void ClearErrors(string propertyName)
+        {
+            if (_errorsByPropertyName.ContainsKey(propertyName))
+            {
+                _errorsByPropertyName.Remove(propertyName);
+                OnErrorsChanged(propertyName);
+            }
+        }
     }
 }

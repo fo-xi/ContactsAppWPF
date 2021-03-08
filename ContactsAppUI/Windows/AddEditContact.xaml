@@ -27,7 +27,8 @@
 				<ColumnDefinition SharedSizeGroup="button"/>
 			</Grid.ColumnDefinitions>
 			<Button Grid.Column="0" x:Name="buttonOK" Content="OK" 
-			        Margin="5" Command="{Binding OK}"/>
+			        Margin="5" Command="{Binding OK}"
+                    IsEnabled ="{Binding AddEditContact.HasErrors}"/>
 			<Button Grid.Column="1" x:Name="buttonCancel" 
 			        Margin="5" Command ="{Binding Cancel}">
 				<ContentControl>
