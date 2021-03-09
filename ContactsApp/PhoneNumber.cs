@@ -49,8 +49,8 @@ namespace ContactsApp
                 }
 
                 _number = value;
-                HasErrors = _errorsByPropertyName.Any();
                 OnPropertyChanged(nameof(Number));
+                OnErrorsChanged(nameof(HasErrors));
             }
         }
 
@@ -105,13 +105,7 @@ namespace ContactsApp
         {
             get
             {
-
-                return _hasErrors;
-            }
-            set
-            {
-                _hasErrors = value;
-                OnPropertyChanged(nameof(HasErrors));
+                return _errorsByPropertyName.Any();
             }
         }
 

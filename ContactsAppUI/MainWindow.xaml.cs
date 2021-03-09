@@ -78,7 +78,7 @@ namespace ContactsAppUI
                 return;
             }
 
-            AddEditContact addEditWindow = new AddEditContact();
+            var addEditWindow = new AddEditContact();
 
             var edit = (AddEditContactVM)addEditWindow.DataContext;
             edit.AddEditContact = (Contact)selectedContact.Clone();

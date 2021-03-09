@@ -12,22 +12,29 @@ namespace ViewModel
 {
     public class AddEditContactVM : INotifyPropertyChanged
     {
-        private bool _isEnabled;
+        private Contact _addEditContact;
 
         public bool IsEnabled
         {
             get
             {
-                return _isEnabled;
-            }
-            set
-            {
-                _isEnabled = value;
-                OnPropertyChanged(nameof(IsEnabled));
+                return !AddEditContact.HasErrors;
             }
         }
 
-        public Contact AddEditContact { get; set; }
+        public Contact AddEditContact
+        {
+            get
+            {
+                return _addEditContact;
+            }
+            set
+            {
+                _addEditContact = value;
+                _addEditContact.PropertyChanged += ContactChanged;
+                _addEditContact.Number.PropertyChanged += ContactChanged;
+            }
+        }
 
         public Commands OK { get; set; }
 
@@ -36,12 +43,11 @@ namespace ViewModel
         public AddEditContactVM(Contact addEditContact)
         {
             AddEditContact = addEditContact;
-            AddEditContact.PropertyChanged += ContactChanged;
         }
 
         private void ContactChanged(object sender, PropertyChangedEventArgs e)
         {
-            IsEnabled = !AddEditContact.HasErrors;
+            OnPropertyChanged(nameof(IsEnabled));
         }
         
 

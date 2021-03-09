@@ -74,6 +74,7 @@ namespace ContactsApp
                 Validate(value, nameof(Surname));
                 _surname = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Surname));
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -91,6 +92,7 @@ namespace ContactsApp
                 Validate(value, nameof(Name));
                 _name = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -116,6 +118,7 @@ namespace ContactsApp
                 Validate(value, nameof(DateBirth));
                 _dateBirth = value;
                 OnPropertyChanged(nameof(DateBirth));
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -133,6 +136,7 @@ namespace ContactsApp
                 Validate(value, nameof(Email));
                 _email = value;
                 OnPropertyChanged(nameof(Email));
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -150,6 +154,7 @@ namespace ContactsApp
                 Validate(value, nameof(VKID));
                 _vkID = value;
                 OnPropertyChanged(nameof(VKID));
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -177,7 +182,7 @@ namespace ContactsApp
 
         private void PhoneNumberChanged(object sender, PropertyChangedEventArgs e)
         {
-            HasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
+            OnErrorsChanged(nameof(HasErrors));
         }
 
         /// <summary>
@@ -233,12 +238,7 @@ namespace ContactsApp
         {
             get
             {
-                return _hasErrors;
-            }
-            set
-            {
-                _hasErrors = value;
-                OnPropertyChanged(nameof(HasErrors));
+                return _errorsByPropertyName.Any() || Number.HasErrors;
             }
         }
 
@@ -313,8 +313,6 @@ namespace ContactsApp
             {
                 AddError(propertyName, e.Message);
             }
-
-            HasErrors = _errorsByPropertyName.Any() || Number.HasErrors;
         }
     }
     
