@@ -1,23 +1,40 @@
-﻿<Window x:Class="ContactsAppUI.About"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ContactsAppUI"
-        mc:Ignorable="d"
-        Title="About" Height="400" Width="550" ResizeMode="NoResize">
+﻿<Window
+    x:Class="ContactsAppUI.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ContactsAppUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="About"
+    Width="550"
+    Height="400"
+    ResizeMode="NoResize"
+    mc:Ignorable="d">
     <Grid>
-		<TextBlock Text="ContactsApp" FontWeight="Bold" FontSize="30" Margin="10"/>
-		<TextBlock Text="v. 1.0.0" FontSize="15" Margin="15,55,0,0"/>
-		<TextBlock Text="Author: Dyagay Alexandra" FontSize="15" Margin="15,120,0,0"/>
-		<TextBlock Margin="15,185,0,0">
-            <Run Text="e-mail for feedback:" FontSize="15"></Run>
-            <Hyperlink NavigateUri="dyagaay@gmail.com" FontSize="15">dyagaay@gmail.com</Hyperlink>
+        <TextBlock
+            Margin="10"
+            FontSize="30"
+            FontWeight="Bold"
+            Text="ContactsApp" />
+        <TextBlock
+            Margin="15,55,0,0"
+            FontSize="15"
+            Text="v. 1.0.0" />
+        <TextBlock
+            Margin="15,120,0,0"
+            FontSize="15"
+            Text="Author: Dyagay Alexandra" />
+        <TextBlock Margin="15,185,0,0">
+            <Run FontSize="15" Text="e-mail for feedback:" />
+            <Hyperlink FontSize="15" NavigateUri="dyagaay@gmail.com">dyagaay@gmail.com</Hyperlink>
         </TextBlock>
-		<TextBlock Margin="15,210,0,0">
-			<Run Text="GitHub:" FontSize="15"></Run>
-			<Hyperlink NavigateUri="https://github.com/fo-xi/ContactsAppWPF" FontSize="15">fo-xi/ContactsAppWPF</Hyperlink>
-		</TextBlock>
-		<TextBlock Text="2021 Dyagay Alexandra" FontSize="15" Margin="15,340,0,0"/>
+        <TextBlock Margin="15,210,0,0">
+            <Run FontSize="15" Text="GitHub:" />
+            <Hyperlink FontSize="15" NavigateUri="https://github.com/fo-xi/ContactsAppWPF">fo-xi/ContactsAppWPF</Hyperlink>
+        </TextBlock>
+        <TextBlock
+            Margin="15,340,0,0"
+            FontSize="15"
+            Text="2021 Dyagay Alexandra" />
     </Grid>
 </Window>

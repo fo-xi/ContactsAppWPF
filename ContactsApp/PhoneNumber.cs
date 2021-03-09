@@ -113,7 +113,7 @@ namespace ContactsApp
         /// <summary>
         /// Event triggering.
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Property Name.</param>
         private void OnErrorsChanged(string propertyName)
         {
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));

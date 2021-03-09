@@ -94,8 +94,6 @@ namespace ContactsApp
             }
         }
 
-        private PhoneNumber _number;
-
         /// <summary>
         /// Returns and sets the contact's number.
         /// </summary>
@@ -104,7 +102,6 @@ namespace ContactsApp
         /// <summary>
         /// Returns and sets the contact's birthday.
         /// </summary>
-        /// 
         public DateTime DateBirth
         {
             get

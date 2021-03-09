@@ -54,7 +54,7 @@ namespace ContactsApp
 
         /// <summary>
         /// Returns a list of all contacts where the date of birth (day and month) 
-        /// matches the date in the input argument
+        /// matches the date in the input argument.
         /// </summary>
         /// /// <param name="dateBirth">Date of birth.</param>
         public ObservableCollection<Contact> GetDateBirth(DateTime dateBirth)
