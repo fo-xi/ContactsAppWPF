@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContactsApp
 {
@@ -99,7 +97,7 @@ namespace ContactsApp
         private PhoneNumber _number;
 
         /// <summary>
-        /// Contact's number.
+        /// Returns and sets the contact's number.
         /// </summary>
         public PhoneNumber Number { get; set; }
 
@@ -180,6 +178,11 @@ namespace ContactsApp
             VKID = vkID;
         }
 
+        /// <summary>
+        /// Updates button access.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberChanged(object sender, PropertyChangedEventArgs e)
         {
             OnErrorsChanged(nameof(HasErrors));
@@ -205,14 +208,14 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Event that will react to changes in the property 
+        /// Event that will react to changes in the property.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Event triggering.
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Property Name.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -228,8 +231,6 @@ namespace ContactsApp
             return _errorsByPropertyName.ContainsKey(propertyName) ?
                 _errorsByPropertyName[propertyName] : null;
         }
-
-        private bool _hasErrors;
 
         /// <summary>
         ///  Property indicates whether there are any validation errors.

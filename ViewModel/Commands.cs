@@ -6,6 +6,7 @@ namespace ViewModel
     public class Commands : ICommand
     {
         private Action<object> _execute;
+
         private Func<object, bool> _canExecute;
 
         public Commands(Action<object> execute, Func<object, bool> canExecute = null)

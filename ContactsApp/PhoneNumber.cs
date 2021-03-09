@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using ContactsApp.Annotations;
 
 namespace ContactsApp
 {
@@ -95,8 +92,6 @@ namespace ContactsApp
             return _errorsByPropertyName.ContainsKey(propertyName) ?
                 _errorsByPropertyName[propertyName] : null;
         }
-
-        private bool _hasErrors;
 
         /// <summary>
         ///  Property indicates whether there are any validation errors.

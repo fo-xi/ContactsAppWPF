@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace ContactsApp
@@ -14,11 +10,20 @@ namespace ContactsApp
     /// </summary>
     public static class ProjectManager
     {
+        /// <summary>
+        /// File save folder.
+        /// </summary>
         private static readonly string _folder = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\ContactsApp\\";
 
+        /// <summary>
+        /// Save file.
+        /// </summary>
         private static readonly string _file = "Contacts.txt";
 
+        /// <summary>
+        /// File save path.
+        /// </summary>
         public static string Path { get; set; } = _folder + _file;
 
         /// <summary>
@@ -52,6 +57,7 @@ namespace ContactsApp
         public static Project ReadFromFile()
         {
             Project project = new Project();
+
             if (File.Exists(Path))
             {
                 JsonSerializer serializer = new JsonSerializer();
