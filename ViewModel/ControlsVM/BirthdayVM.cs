@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using ContactsApp;
 
-namespace ViewModel
+namespace ViewModel.ControlsVM
 {
     /// <summary>
     /// View model for control Birthday.

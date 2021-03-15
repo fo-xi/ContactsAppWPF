@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditContactVM.cs" />
-    <Compile Include="BirthdayVM.cs" />
+    <Compile Include="WindowsVM\AddEditContactVM.cs" />
+    <Compile Include="ControlsVM\BirthdayVM.cs" />
     <Compile Include="Commands.cs" />
-    <Compile Include="ListСontactsVM.cs" />
+    <Compile Include="Service\IMessageBoxService.cs" />
+    <Compile Include="Service\IWindowService.cs" />
+    <Compile Include="ControlsVM\ListСontactsVM.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,5 +57,6 @@
       <Name>ContactsApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

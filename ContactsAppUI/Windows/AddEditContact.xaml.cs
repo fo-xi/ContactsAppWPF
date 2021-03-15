@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using ContactsApp;
 using ViewModel;
+using ViewModel.WindowsVM;
 
 namespace ContactsAppUI
 {
@@ -9,29 +10,11 @@ namespace ContactsAppUI
     /// </summary>
     public partial class AddEditContact : Window
     {
-        public AddEditContact()
+        public AddEditContact(AddEditContactVM contact)
         {
             InitializeComponent();
 
-            var addEditContact = new AddEditContactVM(new Contact());
-
-            addEditContact.OK = new Commands(OK);
-
-            addEditContact.Cancel = new Commands(Cancel);
-
-            DataContext = addEditContact;
-        }
-
-        private void OK(object sender)
-        {
-            DialogResult = true;
-            Close();
-        }
-
-        private void Cancel(object sender)
-        {
-            DialogResult = false;
-            Close();
+            DataContext = contact;
         }
     }
 }

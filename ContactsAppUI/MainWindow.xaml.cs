@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ContactsApp;
+using ContactsAppUI.Service;
 using ViewModel;
 
 namespace ContactsAppUI
@@ -9,74 +10,23 @@ namespace ContactsAppUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainWindowVM _mainWindow = new MainWindowVM();
+        MainWindowVM _mainWindow = new MainWindowVM(new MessageBoxService(), new WindowService());
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _mainWindow.ListСontacts.Add = new Commands(Add);
-            _mainWindow.ListСontacts.Remove = new Commands(Remove);
-            _mainWindow.ListСontacts.Edit = new Commands(Edit);
-
             DataContext = _mainWindow;
 
             About.Command = new Commands(OpenAbout);
             Exit.Command = new Commands(ExitMainWindow);
-            AddContact.Command = new Commands(Add);
-            EditContact.Command = new Commands(Edit);
-            RemoveContact.Command = new Commands(Remove);
+            AddContact.Command = _mainWindow.ListСontacts.Add;
+            EditContact.Command = _mainWindow.ListСontacts.Edit;
+            RemoveContact.Command = _mainWindow.ListСontacts.Remove;
 
             Closing += ClosingMainWindow;
         }
-        private void Add(object sender)
-        {
-            AddEditContact addEditWindow = new AddEditContact();
-            if (addEditWindow.ShowDialog() == true)
-            {
-                var mainWindow = (MainWindowVM)DataContext;
-                var add = (AddEditContactVM)addEditWindow.DataContext;
-                mainWindow.ListСontacts.Contacts.Add(add.AddEditContact);
-            }
-        }
-
-        private void Remove(object sender)
-        {
-            var mainWindow = (MainWindowVM)DataContext;
-            var selectedContact = mainWindow.ListСontacts.SelectedContact;
-
-            if (selectedContact == null)
-            {
-                MessageBox.Show($"Select Contact!");
-                return;
-            }
-
-            mainWindow.ListСontacts.Contacts.Remove(selectedContact);
-        }
-
-        private void Edit(object sender)
-        {
-            var mainWindow = (MainWindowVM)DataContext;
-            var selectedContact = mainWindow.ListСontacts.SelectedContact;
-
-            if (selectedContact == null)
-            {
-                MessageBox.Show($"Select Contact!");
-                return;
-            }
-
-            var addEditWindow = new AddEditContact();
-
-            var edit = (AddEditContactVM)addEditWindow.DataContext;
-            edit.AddEditContact = (Contact)selectedContact.Clone();
-
-            if (addEditWindow.ShowDialog() == true)
-            {
-                var index = mainWindow.ListСontacts.Contacts.IndexOf(selectedContact);
-                mainWindow.ListСontacts.Contacts[index] = edit.AddEditContact;
-            }
-        }
-
+        
         private void OpenAbout(object sender)
         {
             About aboutWindow = new About();

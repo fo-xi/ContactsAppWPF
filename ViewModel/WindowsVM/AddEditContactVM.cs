@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ContactsApp;
+using ViewModel.Service;
 
-namespace ViewModel
+namespace ViewModel.WindowsVM
 {
     /// <summary>
     /// View Model for window AddEditContact.
@@ -13,6 +14,16 @@ namespace ViewModel
         /// Add or Edit Contact.
         /// </summary>
         private Contact _addEditContact;
+
+        /// <summary>
+        /// Responsible for calling the AddEditContactWindow.
+        /// </summary>
+        private IWindowService _windowService;
+
+        /// <summary>
+        /// DialogResult.
+        /// </summary>
+        public bool DialogResult { get; set; }
 
         /// <summary>
         /// Returns access to the button.
@@ -56,9 +67,13 @@ namespace ViewModel
         /// Create a contact to add or edit.
         /// </summary>
         /// <param name="addEditContact">Add or Edit Contact.</param>
-        public AddEditContactVM(Contact addEditContact)
+        public AddEditContactVM(Contact addEditContact, IWindowService windowService)
         {
             AddEditContact = addEditContact;
+            _windowService = windowService;
+
+            OK = new Commands(OKCommand);
+            Cancel = new Commands(CancelCommand);
         }
 
         /// <summary>
@@ -83,6 +98,26 @@ namespace ViewModel
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Ok command.
+        /// </summary>
+        /// <param name="sender"></param>
+        private void OKCommand(object sender)
+        {
+            DialogResult = true;
+            _windowService.CloseAddEditContactWindow();
+        }
+
+        /// <summary>
+        /// Cancel command.
+        /// </summary>
+        /// <param name="sender"></param>
+        private void CancelCommand(object sender)
+        {
+            DialogResult = false;
+            _windowService.CloseAddEditContactWindow();
         }
     }
 }

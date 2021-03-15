@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ContactsApp;
 
-namespace ViewModel
+namespace ViewModel.ControlsVM
 {
     /// <summary>
     /// View model for control ListСontacts.
