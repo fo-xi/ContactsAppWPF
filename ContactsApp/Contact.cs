@@ -52,6 +52,7 @@ namespace ContactsApp
         /// </summary>
         private string _vkID;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Contains a dictionary of errors.
         /// </summary>
@@ -99,6 +100,7 @@ namespace ContactsApp
         /// </summary>
         public PhoneNumber Number { get; set; }
 
+        // TODO: день рождения в разных местах называется по-разному. Сделать единообразно
         /// <summary>
         /// Returns and sets the contact's birthday.
         /// </summary>
@@ -204,11 +206,13 @@ namespace ContactsApp
                 Email = this.Email, VKID = this.VKID);
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event that will react to changes in the property.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -218,6 +222,7 @@ namespace ContactsApp
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Gets all error messages.
         /// </summary>
@@ -229,6 +234,7 @@ namespace ContactsApp
                 _errorsByPropertyName[propertyName] : null;
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         ///  Property indicates whether there are any validation errors.
         /// </summary>
@@ -240,12 +246,14 @@ namespace ContactsApp
             }
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event must occur when the validation errors have changed
         /// for a property or for the entity.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -255,6 +263,7 @@ namespace ContactsApp
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Adds an error message to the error dictionary.
         /// </summary>
@@ -272,6 +281,7 @@ namespace ContactsApp
             }
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Removes all errors by key.
         /// </summary>
@@ -285,6 +295,9 @@ namespace ContactsApp
             }
         }
 
+        // TODO: метод шаблонный, но почему-то всё равно занимается конвертированием в конкретный тип данных.
+        // Либо конвертирование, либо шаблонный метод
+        // TODO: вместо Assert с throw должны быть булевы методы. Иначе кидание исключений самому себе
         /// <summary>
         /// Validation of values.
         /// </summary>

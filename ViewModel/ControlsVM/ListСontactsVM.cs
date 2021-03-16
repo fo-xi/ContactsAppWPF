@@ -6,6 +6,8 @@ using ContactsApp;
 
 namespace ViewModel.ControlsVM
 {
+    // TODO: именование. Зачем слово List? Почему Contacts?..
+    // Это не просто список контактов, это представление для всего проекта
     /// <summary>
     /// View model for control ListСontacts.
     /// </summary>
@@ -31,6 +33,7 @@ namespace ViewModel.ControlsVM
         /// </summary>
         public ObservableCollection<Contact> Contacts { get; set; }
 
+        // TODO: Finded
         /// <summary>
         /// Returns and sets a list of all found contacts.
         /// </summary>
@@ -80,16 +83,19 @@ namespace ViewModel.ControlsVM
             }
         }
 
+        // TODO: свойство с командой должно в название добавлять слово Command
         /// <summary>
         /// Returns and sets Add contact command.
         /// </summary>
         public Commands Add { get; set; }
 
+        // TODO: свойство с командой должно в название добавлять слово Command
         /// <summary>
         /// Returns and sets Remove contact command.
         /// </summary>
         public Commands Remove { get; set; }
 
+        // TODO: свойство с командой должно в название добавлять слово Command
         /// <summary>
         /// Returns and sets Edit contact command.
         /// </summary>
@@ -104,16 +110,20 @@ namespace ViewModel.ControlsVM
              Contacts = FindContacts = contacts;
         }
 
+        // TODO: можно было обойтись одним событием...
+        // INotifyPropertyChanged не обязательно использовать только для биндингов
         /// <summary>
         /// An event that will react to changes in the contact search string.
         /// </summary>
         public event EventHandler TextChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event that will react to changes in the property.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event triggering.
         /// </summary>

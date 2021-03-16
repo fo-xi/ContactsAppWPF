@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
+    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует?
     /// <summary>
     /// A class containing a list of all contacts 
     /// created in the app.
@@ -25,6 +26,7 @@ namespace ContactsApp
         {
             var contacts = new ObservableCollection<Contact>();
             var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
+            // TODO: AddRange
             foreach (var i in sortedContacts)
             {
                 contacts.Add(i);
@@ -40,8 +42,12 @@ namespace ContactsApp
         public ObservableCollection<Contact> SortingContacts(string substring)
         {
             var contacts = new ObservableCollection<Contact>();
+            // TODO: сначала выбирать по условию, а потом сортировать! Зачем сортировать данные, которые потом отсеются?
             var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
 
+            // TODO: LINQ
+            // TODO: AddRange
+            // TODO: дублирование с методом выше
             foreach (var i in sortedContacts)
             {
                 if ((i.Surname.Contains(substring)) || (i.Name.Contains(substring)))

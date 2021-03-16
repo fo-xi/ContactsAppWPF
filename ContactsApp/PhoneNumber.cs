@@ -17,6 +17,7 @@ namespace ContactsApp
         /// </summary>
         private string _number;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Contains a dictionary of errors.
         /// </summary>
@@ -38,6 +39,8 @@ namespace ContactsApp
 
                 try
                 {
+                    // TODO: если надо узнать, есть ошибка или нет,..
+                    // то надо делать возврат bool, а не выкидывание исключения
                     Validator.AssertPhoneNumber(value);
                 }
                 catch (ArgumentException e)
@@ -68,11 +71,13 @@ namespace ContactsApp
             Number = String.Empty;
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event that will react to changes in the property 
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -82,6 +87,7 @@ namespace ContactsApp
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Gets all error messages.
         /// </summary>
@@ -93,6 +99,7 @@ namespace ContactsApp
                 _errorsByPropertyName[propertyName] : null;
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         ///  Property indicates whether there are any validation errors.
         /// </summary>
@@ -104,12 +111,14 @@ namespace ContactsApp
             }
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event must occur when the validation errors have changed
         /// for a property or for the entity.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -119,6 +128,7 @@ namespace ContactsApp
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Adds an error message to the error dictionary.
         /// </summary>
@@ -136,6 +146,7 @@ namespace ContactsApp
             }
         }
 
+        // TODO: в базовый класс?
         /// <summary>
         /// Removes all errors by key.
         /// </summary>

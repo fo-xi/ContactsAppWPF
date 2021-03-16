@@ -5,11 +5,13 @@ using ViewModel.Service;
 
 namespace ViewModel.WindowsVM
 {
+    // TODO: именование класса - зачем куча глаголов в начале?
     /// <summary>
     /// View Model for window AddEditContact.
     /// </summary>
     public class AddEditContactVM : INotifyPropertyChanged
     {
+        // TODO: именование
         /// <summary>
         /// Add or Edit Contact.
         /// </summary>
@@ -20,6 +22,7 @@ namespace ViewModel.WindowsVM
         /// </summary>
         private IWindowService _windowService;
 
+        // TODO: DialogResult должен быть в интерфейсе сервиса, а не VM
         /// <summary>
         /// DialogResult.
         /// </summary>
@@ -36,6 +39,7 @@ namespace ViewModel.WindowsVM
             }
         }
 
+        // TODO: именование
         /// <summary>
         /// Returns and sets Add or Edit Contact.
         /// </summary>
@@ -53,11 +57,13 @@ namespace ViewModel.WindowsVM
             }
         }
 
+        // TODO: свойство с командой должно в название добавлять слово Command
         /// <summary>
         /// Returns and sets Ok command.
         /// </summary>
         public Commands OK { get; set; }
 
+        // TODO: свойство с командой должно в название добавлять слово Command
         /// <summary>
         /// Returns and sets Cancel command.
         /// </summary>
@@ -86,11 +92,13 @@ namespace ViewModel.WindowsVM
             OnPropertyChanged(nameof(IsEnabled));
         }
 
+        // TODO: в базовый класс
         /// <summary>
         /// Event that will react to changes in the property.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: в базовый класс
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -100,6 +108,7 @@ namespace ViewModel.WindowsVM
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        // TODO: команда может быть в реализации сервиса окна
         /// <summary>
         /// Ok command.
         /// </summary>
@@ -110,6 +119,7 @@ namespace ViewModel.WindowsVM
             _windowService.CloseAddEditContactWindow();
         }
 
+        // TODO: команда может быть в реализации сервиса окна
         /// <summary>
         /// Cancel command.
         /// </summary>

@@ -6,6 +6,9 @@ using ViewModel.WindowsVM;
 
 namespace ViewModel
 {
+    // BUG: При первом запуске редактирование контакта не работает, не обновляется
+    // BUG: Контакты не сортируются по алфавиту после редактирования
+    // TODO: Любая VM должна реализовывать интерфейс INotifyPropertyChanged
     /// <summary>
     /// View Model for window MainWindow.
     /// </summary>
@@ -31,6 +34,7 @@ namespace ViewModel
         /// </summary>
         public BirthdayVM Birthday { get; set; }
 
+        // TODO: именование
         /// <summary>
         /// A contact list.
         /// </summary>
@@ -49,6 +53,7 @@ namespace ViewModel
 
             _messageBoxService = messageBoxService;
 
+            // TODO: если реализация команд в этой VM, то почему они хранятся в другой?
             ListСontacts.Add = new Commands(Add);
             ListСontacts.Remove = new Commands(Remove);
             ListСontacts.Edit = new Commands(Edit);
@@ -102,10 +107,12 @@ namespace ViewModel
                 _messageBoxService.Show("Select Contact!");
                 return;
             }
-
+            // TODO: длинная строка, больше 100 символов..
+            //.. переформатировать, чтобы было не больше 100
             AddEditContactVM addEditWindow = new AddEditContactVM((Contact)selectedContact.Clone(), _windowService);
             _windowService.OpenAddEditContactWindow(addEditWindow);
 
+            // TODO: сравнение с true в условиях не делают
             if (addEditWindow.DialogResult == true)
             {
                 var index = ListСontacts.Contacts.IndexOf(selectedContact);
