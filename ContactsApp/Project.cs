@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует?
+    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует? (?)
+    // А зачем?
     /// <summary>
     /// A class containing a list of all contacts 
     /// created in the app.
@@ -24,38 +25,25 @@ namespace ContactsApp
 		/// </summary>
         public ObservableCollection<Contact> SortingContacts()
         {
-            var contacts = new ObservableCollection<Contact>();
-            var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
-            // TODO: AddRange
-            foreach (var i in sortedContacts)
-            {
-                contacts.Add(i);
-            }
-            return contacts;
+            var sortedContacts = Contacts.OrderBy(contact => contact.Surname);
+            return new ObservableCollection<Contact>(sortedContacts);
         }
 
         /// <summary>
-		/// Alphabetically sort the list of contacts whose last name 
+		/// Alphabetically sort the list of contacts whose last name.
         /// or first name contains the specified substring.
 		/// </summary>
         /// <param name="substring">First or last name substring.</param>
         public ObservableCollection<Contact> SortingContacts(string substring)
         {
-            var contacts = new ObservableCollection<Contact>();
-            // TODO: сначала выбирать по условию, а потом сортировать! Зачем сортировать данные, которые потом отсеются?
-            var sortedContacts = Contacts.OrderBy(contact => contact.Surname).ToList();
+            // TODO: LINQ (+)
+            // TODO: AddRange (+)
+            // TODO: дублирование с методом выше (+)
+            // TODO: сначала выбирать по условию, а потом сортировать! Зачем сортировать данные, которые потом отсеются? (+)
 
-            // TODO: LINQ
-            // TODO: AddRange
-            // TODO: дублирование с методом выше
-            foreach (var i in sortedContacts)
-            {
-                if ((i.Surname.Contains(substring)) || (i.Name.Contains(substring)))
-                {
-                    contacts.Add(i);
-                }
-            }
-            return contacts;
+            var sortedContacts = Contacts.Where(contact => contact.Surname.Contains(substring) 
+            || contact.Name.Contains(substring)).OrderBy(contact => contact.Surname);
+            return new ObservableCollection<Contact>(sortedContacts);
         }
 
         /// <summary>
@@ -69,8 +57,8 @@ namespace ContactsApp
 
             foreach (var i in Contacts)
             {
-                if ((i.DateBirth.Day == dateBirth.Day) &&
-                    (i.DateBirth.Month == dateBirth.Month))
+                if ((i.Birthday.Day == dateBirth.Day) &&
+                    (i.Birthday.Month == dateBirth.Month))
                 {
                     dateBirthContacts.Add(i);
                 }

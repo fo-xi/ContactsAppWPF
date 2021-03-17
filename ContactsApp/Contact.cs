@@ -10,23 +10,8 @@ namespace ContactsApp
     /// <summary>
     /// A class containing all information about the contact.
     /// </summary>
-    public class Contact : ICloneable, INotifyPropertyChanged, INotifyDataErrorInfo
+    public class Contact : NotifyDataError, ICloneable
     {
-        /// <summary>
-        /// Minimum string length.
-        /// </summary>
-        private const int MinLength = 1;
-
-        /// <summary>
-        /// Maximum string length 
-        /// </summary>
-        private const int MaxLength = 50;
-
-        /// <summary>
-        /// Minimum year allowed.
-        /// </summary>
-        private const int MinYear = 1900;
-
         /// <summary>
         /// Contact's surname.
         /// </summary>
@@ -40,7 +25,7 @@ namespace ContactsApp
         /// <summary>
         /// Contact's birthday.
         /// </summary>
-        private DateTime _dateBirth;
+        private DateTime _birthday;
 
         /// <summary>
         /// Contact's email.
@@ -52,22 +37,23 @@ namespace ContactsApp
         /// </summary>
         private string _vkID;
 
-        // TODO: в базовый класс?
         /// <summary>
-        /// Contains a dictionary of errors.
+        /// Property indicates whether there are any validation errors.
         /// </summary>
-        private readonly Dictionary<string, List<string>> _errorsByPropertyName
-            = new Dictionary<string, List<string>>();
+        public override bool HasErrors
+        {
+            get
+            {
+                return _errorsByPropertyName.Any() || Number.HasErrors;
+            }
+        }
 
         /// <summary>
         /// Returns and sets the contact's surname.
         /// </summary>
         public string Surname
         {
-            get
-            {
-                return _surname;
-            }
+            get { return _surname; }
             set
             {
                 Validate(value, nameof(Surname));
@@ -82,10 +68,7 @@ namespace ContactsApp
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get { return _name; }
             set
             {
                 Validate(value, nameof(Name));
@@ -100,21 +83,18 @@ namespace ContactsApp
         /// </summary>
         public PhoneNumber Number { get; set; }
 
-        // TODO: день рождения в разных местах называется по-разному. Сделать единообразно
+        // TODO: день рождения в разных местах называется по-разному. Сделать единообразно (+)
         /// <summary>
         /// Returns and sets the contact's birthday.
         /// </summary>
-        public DateTime DateBirth
+        public DateTime Birthday
         {
-            get
-            {
-                return _dateBirth;
-            }
+            get { return _birthday; }
             set
             {
-                Validate(value, nameof(DateBirth));
-                _dateBirth = value;
-                OnPropertyChanged(nameof(DateBirth));
+                Validate(value, nameof(Birthday));
+                _birthday = value;
+                OnPropertyChanged(nameof(Birthday));
                 OnPropertyChanged(nameof(HasErrors));
             }
         }
@@ -124,10 +104,7 @@ namespace ContactsApp
         /// </summary>
         public string Email
         {
-            get
-            {
-                return _email;
-            }
+            get { return _email; }
             set
             {
                 Validate(value, nameof(Email));
@@ -142,10 +119,7 @@ namespace ContactsApp
         /// </summary>
         public string VKID
         {
-            get
-            {
-                return _vkID;
-            }
+            get { return _vkID; }
             set
             {
                 Validate(value, nameof(VKID));
@@ -161,18 +135,18 @@ namespace ContactsApp
         /// <param name="surname">Contact's surname.</param>
         /// <param name="name">Contact's name..</param>
         /// <param name="number">Contact's number.</param>
-        /// <param name="dateBirth">Contact's birthday.</param>
+        /// <param name="birthday">Contact's birthday.</param>
         /// <param name="email">Contact's email.</param>
         /// <param name="vkID">A double precision number.</param>
 
         public Contact(string surname, string name, PhoneNumber number,
-                       DateTime dateBirth, string email, string vkID)
+            DateTime birthday, string email, string vkID)
         {
             Number = number;
             Number.PropertyChanged += PhoneNumberChanged;
             Name = name;
             Surname = surname;
-            DateBirth = dateBirth;
+            Birthday = birthday;
             Email = email;
             VKID = vkID;
         }
@@ -202,129 +176,8 @@ namespace ContactsApp
         public object Clone()
         {
             return new Contact(Surname = this.Surname, Name = this.Name,
-                Number = this.Number, DateBirth = this.DateBirth,
+                Number = this.Number, Birthday = this.Birthday,
                 Email = this.Email, VKID = this.VKID);
         }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event that will react to changes in the property.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event triggering.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Gets all error messages.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        /// <returns></returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return _errorsByPropertyName.ContainsKey(propertyName) ?
-                _errorsByPropertyName[propertyName] : null;
-        }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        ///  Property indicates whether there are any validation errors.
-        /// </summary>
-        public bool HasErrors
-        {
-            get
-            {
-                return _errorsByPropertyName.Any() || Number.HasErrors;
-            }
-        }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event must occur when the validation errors have changed
-        /// for a property or for the entity.
-        /// </summary>
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event triggering.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void OnErrorsChanged(string propertyName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Adds an error message to the error dictionary.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        /// <param name="error">Error message.</param>
-        private void AddError(string propertyName, string error)
-        {
-            if (!_errorsByPropertyName.ContainsKey(propertyName))
-                _errorsByPropertyName[propertyName] = new List<string>();
-
-            if (!_errorsByPropertyName[propertyName].Contains(error))
-            {
-                _errorsByPropertyName[propertyName].Add(error);
-                OnErrorsChanged(propertyName);
-            }
-        }
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Removes all errors by key.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        private void ClearErrors(string propertyName)
-        {
-            if (_errorsByPropertyName.ContainsKey(propertyName))
-            {
-                _errorsByPropertyName.Remove(propertyName);
-                OnErrorsChanged(propertyName);
-            }
-        }
-
-        // TODO: метод шаблонный, но почему-то всё равно занимается конвертированием в конкретный тип данных.
-        // Либо конвертирование, либо шаблонный метод
-        // TODO: вместо Assert с throw должны быть булевы методы. Иначе кидание исключений самому себе
-        /// <summary>
-        /// Validation of values.
-        /// </summary>
-        /// <typeparam name="T">String or DateTime</typeparam>
-        /// <param name="value">Value.</param>
-        /// <param name="propertyName">Property Name.</param>
-        private void Validate<T>(T value, string propertyName)
-        {
-            ClearErrors(propertyName);
-
-            try
-            {
-                if (value is string valueString)
-                {
-                    Validator.AssertStringLength(valueString, MinLength, MaxLength);
-                }
-
-                if (value is DateTime valueDateTime)
-                {
-                    Validator.AssertDateBirth(valueDateTime, MinYear);
-                }
-            }
-            catch (ArgumentException e)
-            {
-                AddError(propertyName, e.Message);
-            }
-        }
     }
-    
 }

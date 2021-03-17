@@ -36,7 +36,7 @@ namespace UnitTesting
             DateTime expected = new DateTime(2000, 11, 21);
             Assert.DoesNotThrow(() =>
             {
-                Validator.AssertDateBirth(expected, 1900);
+                Validator.AssertBirthday(expected, 1900);
             }, "An exception should occur if the " +
             "date of birth is not in the specified range");
         }
@@ -88,7 +88,7 @@ namespace UnitTesting
             var wrongDateBirth = new DateTime(year, month, day);
             Assert.Throws<ArgumentException>(() =>
             {
-                Validator.AssertDateBirth(wrongDateBirth, 1900);
+                Validator.AssertBirthday(wrongDateBirth, 1900);
             }, message);
         }
     }

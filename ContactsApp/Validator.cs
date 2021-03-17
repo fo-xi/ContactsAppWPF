@@ -14,14 +14,18 @@ namespace ContactsApp
         /// <param name="value">Value set by the user.</param>
         /// <param name="initialLength">The beginning of the border.</param>
         /// <param name="finalLength">The end of the border.</param>
-        public static void AssertStringLength(string value,
-            int initialLength, int finalLength)
+        public static bool AssertStringLength(string value,
+            int initialLength, int finalLength, out string message)
         {
+            message = String.Empty;
+
             if ((value.Length < initialLength) || (value.Length > finalLength))
             {
-                throw new ArgumentException("Value must be in the range from " +
-                                            initialLength + " to " + finalLength );
+                message = "Value must be in the range from " +
+                          initialLength + " to " + finalLength;
+                return false;
             }
+            return true;
         }
 
         /// <summary>
@@ -43,14 +47,18 @@ namespace ContactsApp
         /// Checking the phone number for the first digit.
         /// </summary>
         /// <param name="value">Phone number.</param>
-        public static void AssertPhoneNumber(string value)
+        public static bool AssertPhoneNumber(string value, out string message)
         {
+            message = String.Empty;
+
             if ((value.Length != 11) || (value[0] != '7'))
             {
-                throw new ArgumentException(value + 
+                message = value + 
                        " The number must contain exactly 11 " +
-                      "digits and start with 7");
+                      "digits and start with 7";
+                return false;
             }
+            return true;
         }
 
         /// <summary>
@@ -58,14 +66,18 @@ namespace ContactsApp
         /// </summary>
         /// <param name="value">Date of birth.</param>
         /// <param name="initialLength">Interval start.</param>
-        public static void AssertDateBirth(DateTime value,
-            int initialLength)
+        public static bool AssertBirthday(DateTime value,
+            int initialLength, out string message)
         {
+            message = String.Empty;
+
             if ((value.Year < initialLength) || (value > DateTime.Now))
             {
-                throw new ArgumentException("Value must be in the range from" 
-                                            + " to " + DateTime.Now);
+                message = "Value must be in the range from" 
+                                            + " to " + DateTime.Now;
+                return false;
             }
+            return true;
         }
     }
 }

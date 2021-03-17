@@ -110,15 +110,15 @@ namespace UnitTesting
             }, "The PhoneNumber setter accepts the correct phone number");
         }
 
-        [Test(Description = "Positive test of the getter DateBirth")]
+        [Test(Description = "Positive test of the getter Birthday")]
         public void TestDateBirthGet_CorrectValue()
         {
             var expected = new DateTime(2000, 6, 4);
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            contact.DateBirth = expected;
-            var actual = contact.DateBirth;
-            Assert.AreEqual(expected, actual, "The DateBirth getter " +
+            contact.Birthday = expected;
+            var actual = contact.Birthday;
+            Assert.AreEqual(expected, actual, "The Birthday getter " +
                 "returns an incorrect date of birth");
         }
 
@@ -130,7 +130,7 @@ namespace UnitTesting
                 new DateTime(2000, 11, 21), " ", " ");
             Assert.DoesNotThrow(() =>
             {
-                contact.DateBirth = expected;
+                contact.Birthday = expected;
             }, "The DateBirt setter accepts the correct date of birth");
         }
 
@@ -146,7 +146,7 @@ namespace UnitTesting
                 new DateTime(2000, 11, 21), " ", " ");
             Assert.Throws<ArgumentException>(() =>
             {
-                contact.DateBirth = wrongDateBirt;
+                contact.Birthday = wrongDateBirt;
             }, message);
         }
 
