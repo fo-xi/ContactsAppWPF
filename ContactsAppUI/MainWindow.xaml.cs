@@ -20,9 +20,9 @@ namespace ContactsAppUI
 
             About.Command = new Commands(OpenAbout);
             Exit.Command = new Commands(ExitMainWindow);
-            AddContact.Command = _mainWindow.ListСontacts.Add;
-            EditContact.Command = _mainWindow.ListСontacts.Edit;
-            RemoveContact.Command = _mainWindow.ListСontacts.Remove;
+            AddContact.Command = _mainWindow.ListСontacts.AddCommand;
+            EditContact.Command = _mainWindow.ListСontacts.EditCommand;
+            RemoveContact.Command = _mainWindow.ListСontacts.RemoveCommand;
 
             Closing += ClosingMainWindow;
         }

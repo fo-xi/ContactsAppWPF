@@ -42,7 +42,7 @@
             Orientation="Horizontal">
             <Button
                 Margin="0,3,3,3"
-                Command="{Binding Add}"
+                Command="{Binding AddCommand}"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
                 <Image
                     Width="20"
@@ -51,7 +51,7 @@
             </Button>
             <Button
                 Margin="3"
-                Command="{Binding Edit}"
+                Command="{Binding EditCommand}"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
                 <Image
                     Width="20"
@@ -60,7 +60,7 @@
             </Button>
             <Button
                 Margin="3"
-                Command="{Binding Remove}"
+                Command="{Binding RemoveCommand}"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
                 <Image
                     Width="20"

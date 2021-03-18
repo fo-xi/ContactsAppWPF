@@ -13,7 +13,7 @@ namespace ViewModel.WindowsVM
     {
         // TODO: именование
         /// <summary>
-        /// Add or Edit Contact.
+        /// AddCommand or EditCommand Contact.
         /// </summary>
         private Contact _addEditContact;
 
@@ -41,7 +41,7 @@ namespace ViewModel.WindowsVM
 
         // TODO: именование
         /// <summary>
-        /// Returns and sets Add or Edit Contact.
+        /// Returns and sets AddCommand or EditCommand Contact.
         /// </summary>
         public Contact AddEditContact
         {
@@ -72,7 +72,7 @@ namespace ViewModel.WindowsVM
         /// <summary>
         /// Create a contact to add or edit.
         /// </summary>
-        /// <param name="addEditContact">Add or Edit Contact.</param>
+        /// <param name="addEditContact">AddCommand or EditCommand Contact.</param>
         public AddEditContactVM(Contact addEditContact, IWindowService windowService)
         {
             AddEditContact = addEditContact;

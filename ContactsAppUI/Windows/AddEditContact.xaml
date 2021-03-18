@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
     xmlns:windowsVm="clr-namespace:ViewModel.WindowsVM;assembly=ViewModel"
-    Title="Add/EditContact"
+    Title="AddCommand/EditContact"
     Width="500"
     Height="250"
     d:DataContext="{d:DesignInstance windowsVm:AddEditContactVM}"

@@ -54,9 +54,9 @@ namespace ViewModel
             _messageBoxService = messageBoxService;
 
             // TODO: если реализация команд в этой VM, то почему они хранятся в другой?
-            ListСontacts.Add = new Commands(Add);
-            ListСontacts.Remove = new Commands(Remove);
-            ListСontacts.Edit = new Commands(Edit);
+            ListСontacts.AddCommand = new Commands(Add);
+            ListСontacts.RemoveCommand = new Commands(Remove);
+            ListСontacts.EditCommand = new Commands(Edit);
 
             _windowService = windowService;
 
@@ -64,7 +64,7 @@ namespace ViewModel
         }
 
         /// <summary>
-        /// Add contact.
+        /// AddCommand contact.
         /// </summary>
         /// <param name="sender">Sender.</param>
         private void Add(object sender)

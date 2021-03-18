@@ -63,6 +63,7 @@ namespace ViewModel.ControlsVM
             {
 
                 _findText = value;
+                //OnPropertyChanged(nameof(FindText));
                 TextChanged?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -83,23 +84,23 @@ namespace ViewModel.ControlsVM
             }
         }
 
-        // TODO: свойство с командой должно в название добавлять слово Command
+        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
-        /// Returns and sets Add contact command.
+        /// Returns and sets AddCommand contact command.
         /// </summary>
-        public Commands Add { get; set; }
+        public Commands AddCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command
+        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
-        /// Returns and sets Remove contact command.
+        /// Returns and sets RemoveCommand contact command.
         /// </summary>
-        public Commands Remove { get; set; }
+        public Commands RemoveCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command
+        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
-        /// Returns and sets Edit contact command.
+        /// Returns and sets EditCommand contact command.
         /// </summary>
-        public Commands Edit { get; set; }
+        public Commands EditCommand { get; set; }
 
         /// <summary>
         /// Creates a contact list.
