@@ -138,7 +138,6 @@ namespace ContactsApp
         /// <param name="birthday">Contact's birthday.</param>
         /// <param name="email">Contact's email.</param>
         /// <param name="vkID">A double precision number.</param>
-
         public Contact(string surname, string name, PhoneNumber number,
             DateTime birthday, string email, string vkID)
         {

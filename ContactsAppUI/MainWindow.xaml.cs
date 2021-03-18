@@ -10,7 +10,7 @@ namespace ContactsAppUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainWindowVM _mainWindow = new MainWindowVM(new MessageBoxService(), new AddEditContactWindowService());
+        MainWindowVM _mainWindow = new MainWindowVM(new MessageBoxService(), new ContactWindowService());
 
         public MainWindow()
         {
@@ -20,9 +20,9 @@ namespace ContactsAppUI
 
             About.Command = new Command(OpenAbout);
             Exit.Command = new Command(ExitMainWindow);
-            AddContact.Command = _mainWindow.ListСontacts.AddCommand;
-            EditContact.Command = _mainWindow.ListСontacts.EditCommand;
-            RemoveContact.Command = _mainWindow.ListСontacts.RemoveCommand;
+            AddContact.Command = _mainWindow.Сontacts.AddCommand;
+            EditContact.Command = _mainWindow.Сontacts.EditCommand;
+            RemoveContact.Command = _mainWindow.Сontacts.RemoveCommand;
 
             Closing += ClosingMainWindow;
         }

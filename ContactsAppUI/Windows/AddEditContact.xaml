@@ -10,7 +10,7 @@
     Title="AddCommand/EditContact"
     Width="500"
     Height="250"
-    d:DataContext="{d:DesignInstance windowsVm:AddEditContactVM}"
+    d:DataContext="{d:DesignInstance windowsVm:ContactVM}"
     ResizeMode="NoResize"
     mc:Ignorable="d">
     <Grid>
@@ -22,7 +22,7 @@
         <local:ContactInformation
             Grid.Column="1"
             Margin="5"
-            DataContext="{Binding AddEditContact}" />
+            DataContext="{Binding Contact}" />
 
         <Grid
             Grid.Row="1"
@@ -43,7 +43,7 @@
                 x:Name="buttonCancel"
                 Grid.Column="1"
                 Margin="5"
-                Command="{Binding Cancel}">
+                Command="{Binding CancelCommand}">
                 <ContentControl>
                     <TextBlock Margin="5,0,5,0" Text="Cancel" />
                 </ContentControl>

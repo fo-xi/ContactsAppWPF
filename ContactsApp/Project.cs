@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует? (комментарии)
-    // А зачем?
+    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует? (+)
     /// <summary>
     /// A class containing a list of all contacts 
     /// created in the app.
@@ -16,7 +15,7 @@ namespace ContactsApp
     public class Project : NotifyPropertyChanged
     {
         /// <summary>
-        /// 
+        /// All contacts.
         /// </summary>
         private ObservableCollection<Contact> _contacts;
 
@@ -37,7 +36,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// 
+        /// Creates a list of all contacts.
         /// </summary>
         public Project()
         {

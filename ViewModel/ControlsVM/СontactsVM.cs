@@ -6,12 +6,12 @@ using ContactsApp;
 
 namespace ViewModel.ControlsVM
 {
-    // TODO: именование. Зачем слово List? Почему Contacts?..
+    // TODO: именование. Зачем слово List? Почему Contacts?.. (+)
     // Это не просто список контактов, это представление для всего проекта
     /// <summary>
-    /// View model for control ListСontacts.
+    /// View model for control Сontacts.
     /// </summary>
-    public class ListСontactsVM : NotifyPropertyChanged
+    public class СontactsVM : NotifyPropertyChanged
     {
         /// <summary>
         /// The string by which we are looking for contacts. 
@@ -63,8 +63,7 @@ namespace ViewModel.ControlsVM
             {
 
                 _findText = value;
-                //OnPropertyChanged(nameof(FindText));
-                TextChanged?.Invoke(this, EventArgs.Empty);
+                OnPropertyChanged(nameof(FindText));
             }
         }
 
@@ -106,16 +105,10 @@ namespace ViewModel.ControlsVM
         /// Creates a contact list.
         /// </summary>
         /// <param name="contacts"></param>
-        public ListСontactsVM(ObservableCollection<Contact> contacts = null)
+        public СontactsVM(ObservableCollection<Contact> contacts = null)
         {
              Contacts = Finded = contacts;
+             FindText = string.Empty;
         }
-
-        // TODO: можно было обойтись одним событием...
-        // INotifyPropertyChanged не обязательно использовать только для биндингов
-        /// <summary>
-        /// An event that will react to changes in the contact search string.
-        /// </summary>
-        public event EventHandler TextChanged;
     }
 }

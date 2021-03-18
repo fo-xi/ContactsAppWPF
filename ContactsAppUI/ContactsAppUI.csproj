@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ListСontacts.xaml">
+    <Page Include="Controls\Сontacts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Service\MessageBoxService.cs" />
-    <Compile Include="Service\AddEditContactWindowService.cs" />
+    <Compile Include="Service\ContactWindowService.cs" />
     <Compile Include="Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
@@ -97,8 +97,8 @@
     <Compile Include="Controls\ContactInformation.xaml.cs">
       <DependentUpon>ContactInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ListСontacts.xaml.cs">
-      <DependentUpon>ListСontacts.xaml</DependentUpon>
+    <Compile Include="Controls\Сontacts.xaml.cs">
+      <DependentUpon>Сontacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

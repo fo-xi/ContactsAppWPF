@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowsVM\AddEditContactVM.cs" />
+    <Compile Include="WindowsVM\ContactVM.cs" />
     <Compile Include="ControlsVM\BirthdayVM.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Service\IMessageBoxService.cs" />
     <Compile Include="Service\IAddEditContactWindowService.cs" />
-    <Compile Include="ControlsVM\ListСontactsVM.cs" />
+    <Compile Include="ControlsVM\СontactsVM.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

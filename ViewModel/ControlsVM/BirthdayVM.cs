@@ -3,16 +3,33 @@ using ContactsApp;
 
 namespace ViewModel.ControlsVM
 {
-    // TODO: любая VM должна реализовывать INPC
+    // TODO: любая VM должна реализовывать INPC (+)
     /// <summary>
     /// View model for control Birthday.
     /// </summary>
-    public class BirthdayVM
+    public class BirthdayVM : NotifyPropertyChanged
     {
+        /// <summary>
+        /// Birthday list.
+        /// </summary>
+        private string _listBirthdayContact;
+
         /// <summary>
         /// Contacts about which birthday on the appointed day.
         /// </summary>
-        public string ListBirthdayContact { get; set; }
+        public string ListBirthdayContact
+        {
+            get
+            {
+                return _listBirthdayContact;
+            }
+            set
+            {
+                _listBirthdayContact = value;
+                OnPropertyChanged(nameof(ListBirthdayContact));
+            }
+
+        }
 
         /// <summary>
         /// Creating a string with information about contacts

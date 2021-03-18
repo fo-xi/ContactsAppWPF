@@ -6,11 +6,11 @@ using ViewModel.WindowsVM;
 namespace ContactsAppUI
 {
     /// <summary>
-    /// Interaction logic for AddEditContact.xaml
+    /// Interaction logic for Contact.xaml
     /// </summary>
     public partial class AddEditContact : Window
     {
-        public AddEditContact(AddEditContactVM contact)
+        public AddEditContact(ContactVM contact)
         {
             InitializeComponent();
 

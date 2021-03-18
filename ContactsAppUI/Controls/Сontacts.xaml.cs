@@ -3,11 +3,11 @@
 namespace ContactsAppUI
 {
     /// <summary>
-    /// Interaction logic for ListСontacts.xaml
+    /// Interaction logic for Сontacts.xaml
     /// </summary>
-    public partial class ListСontacts : UserControl
+    public partial class Сontacts : UserControl
     {
-        public ListСontacts()
+        public Сontacts()
         {
             InitializeComponent();
         }

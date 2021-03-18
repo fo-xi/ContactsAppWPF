@@ -30,27 +30,27 @@
                 <MenuItem x:Name="Exit" Header="Exit" />
             </MenuItem>
             <MenuItem Header="Edit">
-                <MenuItem x:Name="AddContact" Header="AddCommand Contact" />
-                <MenuItem x:Name="EditContact" Header="EditCommand Contact" />
-                <MenuItem x:Name="RemoveContact" Header="RemoveCommand Contact" />
+                <MenuItem x:Name="AddContact" Header="Add Contact" />
+                <MenuItem x:Name="EditContact" Header="Edit Contact" />
+                <MenuItem x:Name="RemoveContact" Header="Remove Contact" />
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem x:Name="About" Header="About" />
             </MenuItem>
         </Menu>
 
-        <local:ListСontacts
+        <local:Сontacts
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="0"
             Margin="5,0,0,0"
-            DataContext="{Binding ListСontacts}" />
+            DataContext="{Binding Сontacts}" />
         <local:ContactInformation
             Grid.Row="1"
             Grid.Column="1"
             Margin="5,5,10,5"
             VerticalAlignment="Top"
-            DataContext="{Binding ListСontacts.SelectedContact}"
+            DataContext="{Binding Сontacts.SelectedContact}"
             IsEnabled="False" />
         <local:Birthday
             Grid.Row="2"

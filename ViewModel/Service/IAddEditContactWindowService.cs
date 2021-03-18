@@ -11,14 +11,23 @@ namespace ViewModel.Service
     public interface IAddEditContactWindowService
     {
         /// <summary>
+        /// DialogResult.
+        /// </summary>
+        bool DialogResult { get; set; }
+
+        /// <summary>
         /// Opens a window for adding and editing a contact.
         /// </summary>
-        void Open(AddEditContactVM contact);
+        void Open(ContactVM contact);
 
-        // TODO: зачем метод на закрытие? Окно же показывается как модальное
         /// <summary>
-        /// Close a window for adding and editing a contact.
+        /// OK command.
         /// </summary>
-        void Close();
+        Command OKCommand { get; set; }
+
+        /// <summary>
+        /// Cancel command.
+        /// </summary>
+        Command CancelCommand { get; set; }
     }
 }
