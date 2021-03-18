@@ -27,7 +27,7 @@ namespace ViewModel
         /// <summary>
         /// Responsible for calling the AddEditContactWindow.
         /// </summary>
-        private IWindowService _windowService;
+        private IAddEditContactWindowService _addEditContactWindowService;
 
         /// <summary>
         /// Contacts about which birthday on the appointed day.
@@ -43,10 +43,12 @@ namespace ViewModel
         /// <summary>
         /// Creation of information about all contacts.
         /// </summary>
-        public MainWindowVM(IMessageBoxService messageBoxService, IWindowService windowService)
+        public MainWindowVM(IMessageBoxService messageBoxService,
+            IAddEditContactWindowService addEditContactWindowService)
         {
             _project = ProjectManager.ReadFromFile();
             ListСontacts = new ListСontactsVM(_project.Contacts);
+            _project.Contacts = _project.SortingContacts();
 
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             Birthday = new BirthdayVM(listBirthContacts);
@@ -54,11 +56,11 @@ namespace ViewModel
             _messageBoxService = messageBoxService;
 
             // TODO: если реализация команд в этой VM, то почему они хранятся в другой?
-            ListСontacts.AddCommand = new Commands(Add);
-            ListСontacts.RemoveCommand = new Commands(Remove);
-            ListСontacts.EditCommand = new Commands(Edit);
+            ListСontacts.AddCommand = new Command(Add);
+            ListСontacts.RemoveCommand = new Command(Remove);
+            ListСontacts.EditCommand = new Command(Edit);
 
-            _windowService = windowService;
+            _addEditContactWindowService = addEditContactWindowService;
 
             ListСontacts.TextChanged += OnTextChanged;
         }
@@ -69,12 +71,17 @@ namespace ViewModel
         /// <param name="sender">Sender.</param>
         private void Add(object sender)
         {
-            AddEditContactVM addEditWindow = new AddEditContactVM(new Contact(), _windowService);
-            _windowService.OpenAddEditContactWindow(addEditWindow);
-            if (addEditWindow.DialogResult == true)
+            AddEditContactVM addEditWindow =
+                new AddEditContactVM(new Contact(),
+                    _addEditContactWindowService);
+            _addEditContactWindowService.Open(addEditWindow);
+            if (addEditWindow.DialogResult)
             {
-                ListСontacts.Contacts.Add(addEditWindow.AddEditContact);
+                _project.Contacts.Add(addEditWindow.AddEditContact);
             }
+
+            ListСontacts.Contacts = _project.SortingContacts();
+            ListСontacts.Finded = ListСontacts.Contacts;
         }
 
         /// <summary>
@@ -107,18 +114,22 @@ namespace ViewModel
                 _messageBoxService.Show("Select Contact!");
                 return;
             }
-            // TODO: длинная строка, больше 100 символов..
-            //.. переформатировать, чтобы было не больше 100
-            AddEditContactVM addEditWindow = new AddEditContactVM((Contact)selectedContact.Clone(), _windowService);
-            _windowService.OpenAddEditContactWindow(addEditWindow);
 
-            // TODO: сравнение с true в условиях не делают
-            if (addEditWindow.DialogResult == true)
+            // TODO: длинная строка, больше 100 символов.. (+)
+            //.. переформатировать, чтобы было не больше 100
+            AddEditContactVM addEditWindow =
+                new AddEditContactVM((Contact) selectedContact.Clone(),
+                    _addEditContactWindowService);
+            _addEditContactWindowService.Open(addEditWindow);
+
+            // TODO: сравнение с true в условиях не делают (+)
+            if (addEditWindow.DialogResult)
             {
                 var index = ListСontacts.Contacts.IndexOf(selectedContact);
                 ListСontacts.Contacts[index] = addEditWindow.AddEditContact;
             }
         }
+        
 
         /// <summary>
         /// Saving contact information to a file.
@@ -131,12 +142,13 @@ namespace ViewModel
         /// <summary>
         /// Finding contacts when changing the search bar.
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">Sender.</param>
         /// <param name="e"></param>
         private void OnTextChanged(object sender, EventArgs e)
         {
-            var listСontactsVm = (ListСontactsVM)sender;
-            listСontactsVm.FindContacts = _project.SortingContacts(listСontactsVm.FindText);
+            var listСontactsVm = (ListСontactsVM) sender;
+            listСontactsVm.Finded = _project.SortingContacts();
+            listСontactsVm.Finded = _project.SortingContacts(listСontactsVm.FindText);
         }
     }
 }

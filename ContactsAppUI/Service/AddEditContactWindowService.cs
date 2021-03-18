@@ -8,7 +8,7 @@ namespace ContactsAppUI.Service
     /// <summary>
     /// Сlass responsible for showing window.
     /// </summary>
-    public class WindowService : IWindowService
+    public class AddEditContactWindowService : IAddEditContactWindowService
     {
         // TODO: xml (+)
         /// <summary>
@@ -21,7 +21,7 @@ namespace ContactsAppUI.Service
         /// Opens a window.
         /// </summary>
         /// <param name="contact">Contact.</param>
-        public void OpenAddEditContactWindow(AddEditContactVM contact)
+        public void Open(AddEditContactVM contact)
         {
             _addEditWindow = new AddEditContact(contact);
             _addEditWindow.ShowDialog();
@@ -31,7 +31,7 @@ namespace ContactsAppUI.Service
         /// <summary>
         /// Closes the window.
         /// </summary>
-        public void CloseAddEditContactWindow()
+        public void Close()
         {
             _addEditWindow.Close();
         }

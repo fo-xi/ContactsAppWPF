@@ -7,26 +7,51 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует? (?)
+    // TODO: если агрегируемые классы реализуют INPC, то почему этот класс не реализует? (комментарии)
     // А зачем?
     /// <summary>
     /// A class containing a list of all contacts 
     /// created in the app.
     /// </summary>
-    public class Project
+    public class Project : NotifyPropertyChanged
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private ObservableCollection<Contact> _contacts;
+
         /// <summary>
         /// Stores a list of all contacts created in the app.
         /// </summary>
-        public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
+        public ObservableCollection<Contact> Contacts
+        {
+            get
+            {
+                return _contacts;
+            }
+            set
+            {
+                _contacts = value;
+                OnPropertyChanged(nameof(Contacts));
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Project()
+        {
+            Contacts = new ObservableCollection<Contact>();
+        }
 
         /// <summary>
 		/// Sorts contacts by the first letter of their last name.
 		/// </summary>
         public ObservableCollection<Contact> SortingContacts()
         {
-            var sortedContacts = Contacts.OrderBy(contact => contact.Surname);
-            return new ObservableCollection<Contact>(sortedContacts);
+            Contacts = new ObservableCollection<Contact>
+                (Contacts.OrderBy(contact => contact.Surname));
+            return Contacts;
         }
 
         /// <summary>

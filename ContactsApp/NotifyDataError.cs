@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    public abstract class NotifyDataError : INotifyDataErrorInfo, INotifyPropertyChanged
+    public abstract class NotifyDataError : NotifyPropertyChanged, INotifyDataErrorInfo
     {
         /// <summary>
         /// Minimum string length.
@@ -136,22 +136,6 @@ namespace ContactsApp
             {
                 AddError(propertyName, valueString);
             }
-        }
-
-        // TODO: в базовый класс? (+)
-        /// <summary>
-        /// Event that will react to changes in the property.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // TODO: в базовый класс? (+)
-        /// <summary>
-        /// Event triggering.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

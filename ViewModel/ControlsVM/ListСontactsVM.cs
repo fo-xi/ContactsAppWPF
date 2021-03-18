@@ -11,7 +11,7 @@ namespace ViewModel.ControlsVM
     /// <summary>
     /// View model for control ListСontacts.
     /// </summary>
-    public class ListСontactsVM : INotifyPropertyChanged
+    public class ListСontactsVM : NotifyPropertyChanged
     {
         /// <summary>
         /// The string by which we are looking for contacts. 
@@ -33,11 +33,11 @@ namespace ViewModel.ControlsVM
         /// </summary>
         public ObservableCollection<Contact> Contacts { get; set; }
 
-        // TODO: Finded
+        // TODO: Finded (+)
         /// <summary>
         /// Returns and sets a list of all found contacts.
         /// </summary>
-        public ObservableCollection<Contact> FindContacts
+        public ObservableCollection<Contact> Finded
         {
             get
             {
@@ -46,7 +46,7 @@ namespace ViewModel.ControlsVM
             set
             {
                 _contacts = value;
-                OnPropertyChanged(nameof(FindContacts));
+                OnPropertyChanged(nameof(Finded));
             }
         }
 
@@ -88,19 +88,19 @@ namespace ViewModel.ControlsVM
         /// <summary>
         /// Returns and sets AddCommand contact command.
         /// </summary>
-        public Commands AddCommand { get; set; }
+        public Command AddCommand { get; set; }
 
         // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets RemoveCommand contact command.
         /// </summary>
-        public Commands RemoveCommand { get; set; }
+        public Command RemoveCommand { get; set; }
 
         // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets EditCommand contact command.
         /// </summary>
-        public Commands EditCommand { get; set; }
+        public Command EditCommand { get; set; }
 
         /// <summary>
         /// Creates a contact list.
@@ -108,7 +108,7 @@ namespace ViewModel.ControlsVM
         /// <param name="contacts"></param>
         public ListСontactsVM(ObservableCollection<Contact> contacts = null)
         {
-             Contacts = FindContacts = contacts;
+             Contacts = Finded = contacts;
         }
 
         // TODO: можно было обойтись одним событием...
@@ -117,21 +117,5 @@ namespace ViewModel.ControlsVM
         /// An event that will react to changes in the contact search string.
         /// </summary>
         public event EventHandler TextChanged;
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event that will react to changes in the property.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // TODO: в базовый класс?
-        /// <summary>
-        /// Event triggering.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

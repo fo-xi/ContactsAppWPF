@@ -29,7 +29,7 @@
             <MenuItem Header="File">
                 <MenuItem x:Name="Exit" Header="Exit" />
             </MenuItem>
-            <MenuItem Header="EditCommand">
+            <MenuItem Header="Edit">
                 <MenuItem x:Name="AddContact" Header="AddCommand Contact" />
                 <MenuItem x:Name="EditContact" Header="EditCommand Contact" />
                 <MenuItem x:Name="RemoveContact" Header="RemoveCommand Contact" />

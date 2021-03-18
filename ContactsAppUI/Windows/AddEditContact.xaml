@@ -36,7 +36,7 @@
                 x:Name="buttonOK"
                 Grid.Column="0"
                 Margin="5"
-                Command="{Binding OK}"
+                Command="{Binding OKCommand}"
                 Content="OK"
                 IsEnabled="{Binding IsEnabled}" />
             <Button

@@ -43,9 +43,9 @@
   <ItemGroup>
     <Compile Include="WindowsVM\AddEditContactVM.cs" />
     <Compile Include="ControlsVM\BirthdayVM.cs" />
-    <Compile Include="Commands.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="Service\IMessageBoxService.cs" />
-    <Compile Include="Service\IWindowService.cs" />
+    <Compile Include="Service\IAddEditContactWindowService.cs" />
     <Compile Include="ControlsVM\ListСontactsVM.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="Properties\Annotations.cs" />

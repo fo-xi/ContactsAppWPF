@@ -9,7 +9,7 @@ namespace ViewModel.WindowsVM
     /// <summary>
     /// View Model for window AddEditContact.
     /// </summary>
-    public class AddEditContactVM : INotifyPropertyChanged
+    public class AddEditContactVM : NotifyPropertyChanged
     {
         // TODO: именование
         /// <summary>
@@ -20,7 +20,7 @@ namespace ViewModel.WindowsVM
         /// <summary>
         /// Responsible for calling the AddEditContactWindow.
         /// </summary>
-        private IWindowService _windowService;
+        private IAddEditContactWindowService _addEditContactWindowService;
 
         // TODO: DialogResult должен быть в интерфейсе сервиса, а не VM
         /// <summary>
@@ -57,29 +57,29 @@ namespace ViewModel.WindowsVM
             }
         }
 
-        // TODO: свойство с командой должно в название добавлять слово Command
+        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets Ok command.
         /// </summary>
-        public Commands OK { get; set; }
+        public Command OKCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command
+        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets Cancel command.
         /// </summary>
-        public Commands Cancel { get; set; }
+        public Command CancelCommand { get; set; }
 
         /// <summary>
         /// Create a contact to add or edit.
         /// </summary>
         /// <param name="addEditContact">AddCommand or EditCommand Contact.</param>
-        public AddEditContactVM(Contact addEditContact, IWindowService windowService)
+        public AddEditContactVM(Contact addEditContact, IAddEditContactWindowService addEditContactWindowService)
         {
             AddEditContact = addEditContact;
-            _windowService = windowService;
+            _addEditContactWindowService = addEditContactWindowService;
 
-            OK = new Commands(OKCommand);
-            Cancel = new Commands(CancelCommand);
+            OKCommand = new Command(OK);
+            CancelCommand = new Command(Cancel);
         }
 
         /// <summary>
@@ -92,31 +92,15 @@ namespace ViewModel.WindowsVM
             OnPropertyChanged(nameof(IsEnabled));
         }
 
-        // TODO: в базовый класс
-        /// <summary>
-        /// Event that will react to changes in the property.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // TODO: в базовый класс
-        /// <summary>
-        /// Event triggering.
-        /// </summary>
-        /// <param name="propertyName">Property Name.</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         // TODO: команда может быть в реализации сервиса окна
         /// <summary>
         /// Ok command.
         /// </summary>
         /// <param name="sender"></param>
-        private void OKCommand(object sender)
+        private void OK(object sender)
         {
             DialogResult = true;
-            _windowService.CloseAddEditContactWindow();
+            _addEditContactWindowService.Close();
         }
 
         // TODO: команда может быть в реализации сервиса окна
@@ -124,10 +108,10 @@ namespace ViewModel.WindowsVM
         /// Cancel command.
         /// </summary>
         /// <param name="sender"></param>
-        private void CancelCommand(object sender)
+        private void Cancel(object sender)
         {
             DialogResult = false;
-            _windowService.CloseAddEditContactWindow();
+            _addEditContactWindowService.Close();
         }
     }
 }

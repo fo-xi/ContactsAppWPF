@@ -393,7 +393,7 @@ namespace ViewModel.Annotations
   ///   void Test() {
   ///     var ca1 = new NoEquality();
   ///     var ca2 = new NoEquality();
-  ///     if (ca1 != null) { // OK
+  ///     if (ca1 != null) { // OKCommand
   ///       bool condition = ca1 == ca2; // Warning
   ///     }
   ///   }
@@ -905,7 +905,7 @@ namespace ViewModel.Annotations
   /// <example><code>
   /// [ActionName("Foo")]
   /// public ActionResult Login(string returnUrl) {
-  ///   ViewBag.ReturnUrl = Url.Action("Foo"); // OK
+  ///   ViewBag.ReturnUrl = Url.Action("Foo"); // OKCommand
   ///   return RedirectToAction("Bar"); // Error: Cannot resolve action
   /// }
   /// </code></example>
