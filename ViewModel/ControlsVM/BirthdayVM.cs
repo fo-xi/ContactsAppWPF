@@ -1,16 +1,18 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using ContactsApp;
 
 namespace ViewModel.ControlsVM
 {
     // TODO: любая VM должна реализовывать INPC (+)
     /// <summary>
-    /// View model for control Birthday.
+    /// View model for control BirthdayVM.
     /// </summary>
     public class BirthdayVM : NotifyPropertyChanged
     {
         /// <summary>
-        /// Birthday list.
+        /// BirthdayVM list.
         /// </summary>
         private string _listBirthdayContact;
 
@@ -48,13 +50,10 @@ namespace ViewModel.ControlsVM
         /// <returns></returns>
         private string GetString(ObservableCollection<Contact> contacts)
         {
-            // TODO: здесь можно использовать метод string.Join()
+            // TODO: здесь можно использовать метод string.Join() (+)
             string stringContacts = string.Empty;
 
-            foreach (var i in contacts)
-            {
-                stringContacts += i.Surname + " ";
-            }
+            stringContacts += string.Join(", ", contacts.Select(o=>o.Surname));
 
             return stringContacts;
         }

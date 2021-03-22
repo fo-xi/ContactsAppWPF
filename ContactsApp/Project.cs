@@ -46,11 +46,11 @@ namespace ContactsApp
         /// <summary>
 		/// Sorts contacts by the first letter of their last name.
 		/// </summary>
-        public ObservableCollection<Contact> SortingContacts()
+        public static ObservableCollection<Contact> SortingContacts(ObservableCollection<Contact> contacts)
         {
-            Contacts = new ObservableCollection<Contact>
-                (Contacts.OrderBy(contact => contact.Surname));
-            return Contacts;
+            contacts = new ObservableCollection<Contact>
+                (contacts.OrderBy(contact => contact.Surname));
+            return contacts;
         }
 
         /// <summary>
@@ -58,15 +58,16 @@ namespace ContactsApp
         /// or first name contains the specified substring.
 		/// </summary>
         /// <param name="substring">First or last name substring.</param>
-        public ObservableCollection<Contact> SortingContacts(string substring)
+        public static ObservableCollection<Contact> SortingContacts(string substring,
+            ObservableCollection<Contact> contacts)
         {
             // TODO: LINQ (+)
             // TODO: AddRange (+)
             // TODO: дублирование с методом выше (+)
             // TODO: сначала выбирать по условию, а потом сортировать! Зачем сортировать данные, которые потом отсеются? (+)
 
-            var sortedContacts = Contacts.Where(contact => contact.Surname.Contains(substring) 
-            || contact.Name.Contains(substring)).OrderBy(contact => contact.Surname);
+            var sortedContacts = contacts.Where(contact => contact.Surname.Contains(substring) 
+             || contact.Name.Contains(substring)).OrderBy(contact => contact.Surname);
             return new ObservableCollection<Contact>(sortedContacts);
         }
 

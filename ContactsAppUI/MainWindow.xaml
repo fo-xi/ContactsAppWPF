@@ -44,17 +44,17 @@
             Grid.RowSpan="2"
             Grid.Column="0"
             Margin="5,0,0,0"
-            DataContext="{Binding Сontacts}" />
+            DataContext="{Binding СontactsVM}" />
         <local:ContactInformation
             Grid.Row="1"
             Grid.Column="1"
             Margin="5,5,10,5"
             VerticalAlignment="Top"
-            DataContext="{Binding Сontacts.SelectedContact}"
+            DataContext="{Binding СontactsVM.SelectedContact}"
             IsEnabled="False" />
         <local:Birthday
             Grid.Row="2"
             Grid.Column="1"
-            DataContext="{Binding Birthday}" />
+            DataContext="{Binding BirthdayVM}" />
     </Grid>
 </Window>

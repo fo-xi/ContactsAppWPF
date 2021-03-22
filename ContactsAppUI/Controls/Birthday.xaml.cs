@@ -3,7 +3,7 @@
 namespace ContactsAppUI
 {
     /// <summary>
-    /// Interaction logic for Birthday.xaml
+    /// Interaction logic for BirthdayVM.xaml
     /// </summary>
     public partial class Birthday : UserControl
     {

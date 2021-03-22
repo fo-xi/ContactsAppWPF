@@ -40,7 +40,7 @@
             Grid.Row="2"
             Grid.Column="0"
             Style="{StaticResource TextBlockStyle}"
-            Text="Birthday:" />
+            Text="BirthdayVM:" />
         <TextBlock
             Grid.Row="3"
             Grid.Column="0"

@@ -3,7 +3,7 @@
 namespace ContactsAppUI
 {
     /// <summary>
-    /// Interaction logic for Сontacts.xaml
+    /// Interaction logic for СontactsVM.xaml
     /// </summary>
     public partial class Сontacts : UserControl
     {
