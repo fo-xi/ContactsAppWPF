@@ -5,7 +5,6 @@ using ContactsApp;
 
 namespace ViewModel.ControlsVM
 {
-    // TODO: любая VM должна реализовывать INPC (+)
     /// <summary>
     /// View model for control BirthdayVM.
     /// </summary>
@@ -50,7 +49,6 @@ namespace ViewModel.ControlsVM
         /// <returns></returns>
         private string GetString(ObservableCollection<Contact> contacts)
         {
-            // TODO: здесь можно использовать метод string.Join() (+)
             string stringContacts = string.Empty;
 
             stringContacts += string.Join(", ", contacts.Select(o=>o.Surname));

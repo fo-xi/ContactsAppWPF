@@ -9,31 +9,34 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
+    // TODO: к названию абстрактных классов должно добавляться слово Base
+    // TODO: потерялось слово Info в названии класса из названия интерфейса
     public abstract class NotifyDataError : NotifyPropertyChanged, INotifyDataErrorInfo
     {
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
         /// <summary>
         /// Minimum string length.
         /// </summary>
         private const int MinLength = 1;
 
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
         /// <summary>
         /// Maximum string length 
         /// </summary>
         private const int MaxLength = 50;
 
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
         /// <summary>
         /// Minimum year allowed.
         /// </summary>
         private const int MinYear = 1900;
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Contains a dictionary of errors.
         /// </summary>
         protected readonly Dictionary<string, List<string>> _errorsByPropertyName
             = new Dictionary<string, List<string>>();
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Gets all error messages.
         /// </summary>
@@ -45,7 +48,6 @@ namespace ContactsApp
                 _errorsByPropertyName[propertyName] : null;
         }
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         ///  Property indicates whether there are any validation errors.
         /// </summary>
@@ -57,14 +59,12 @@ namespace ContactsApp
             }
         }
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Event must occur when the validation errors have changed
         /// for a property or for the entity.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Event triggering.
         /// </summary>
@@ -74,7 +74,6 @@ namespace ContactsApp
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         }
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Adds an error message to the error dictionary.
         /// </summary>
@@ -92,7 +91,6 @@ namespace ContactsApp
             }
         }
 
-        // TODO: в базовый класс? (+)
         /// <summary>
         /// Removes all errors by key.
         /// </summary>
@@ -106,9 +104,6 @@ namespace ContactsApp
             }
         }
 
-        // TODO: метод шаблонный, но почему-то всё равно занимается конвертированием в конкретный тип данных. (+)
-        // Либо конвертирование, либо шаблонный метод
-        // TODO: вместо Assert с throw должны быть булевы методы. Иначе кидание исключений самому себе (+)
         /// <summary>
         /// Validation of string.
         /// </summary>

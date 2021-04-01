@@ -7,6 +7,8 @@ namespace ContactsApp
     /// </summary>
     public static class Validator
     {
+        // TODO: ЕЩЕ РАЗ: если проверяющий метод возвращает bool, он именуется от слова Is.
+        // .. Если проверяющий метод кидает исключения, то он именуется от слова Assert.
         /// <summary>
         /// Checks whether the number of characters 
         /// is in the specified range.

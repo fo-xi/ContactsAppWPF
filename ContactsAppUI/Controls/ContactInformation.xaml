@@ -16,7 +16,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
+        <!--TODO а строки должны растягиваться при увеличении высоты контрола?-->
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -25,7 +25,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
+        <!--TODO лучше верстать таким образом, чтобы лейбл и текстбокс были рядом, а не в разных местах-->
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"

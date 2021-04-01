@@ -3,26 +3,21 @@ using System.Windows.Input;
 
 namespace ViewModel
 {
-    // TODO: xml (+)
-    // TODO: почему название в множественном числе? (+)
     /// <summary>
     /// The class that is responsible for the command.
     /// </summary>
     public class Command : ICommand
     {
-        // TODO: xml (+)
         /// <summary>
         /// Represents a method.
         /// </summary>
         private Action<object> _execute;
 
-        // TODO: xml (+)
         /// <summary>
         /// Will determine whether the command can be executed or not.
         /// </summary>
         private Func<object, bool> _canExecute;
 
-        // TODO: xml (+)
         /// <summary>
         /// Creating a command.
         /// </summary>
@@ -34,7 +29,6 @@ namespace ViewModel
             this._canExecute = canExecute;
         }
 
-        // TODO: xml (+)
         /// <summary>
         /// Determines if a command can be executed.
         /// </summary>
@@ -45,7 +39,6 @@ namespace ViewModel
             return this._canExecute == null || this._canExecute(parameter);
         }
 
-        // TODO: xml (+)
         /// <summary>
         /// Executes command logic.
         /// </summary>
@@ -55,7 +48,6 @@ namespace ViewModel
             this._execute(parameter);
         }
 
-        // TODO: xml (+)
         /// <summary>
         /// Called when conditions change,
         /// indicating whether the command can be executed.

@@ -36,6 +36,7 @@
                 Text="{Binding FindText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
 
+        <!--TODO почему сначала кнопки, а потом листбокс?-->
         <StackPanel
             Grid.Row="2"
             Margin="5"

@@ -8,7 +8,6 @@ using ViewModel.WindowsVM;
 
 namespace ViewModel.ControlsVM
 {
-    // TODO: именование. Зачем слово List? Почему Contacts?.. (+)
     // Это не просто список контактов, это представление для всего проекта
     /// <summary>
     /// View model for control СontactsVM.
@@ -20,6 +19,8 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private string _findText;
 
+        // TODO: почему public?
+        // TODO: Это правильное название?
         /// <summary>
         /// List of all contacts.
         /// </summary>
@@ -45,7 +46,7 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private IAddEditContactWindowService _contactWindowService;
 
-        // TODO: Finded (+)
+        // TODO: Finded (-) FindedContacts
         /// <summary>
         /// Returns and sets a list of all found contacts.
         /// </summary>
@@ -57,7 +58,9 @@ namespace ViewModel.ControlsVM
             }
             set
             {
-                _contacts = Project.SortingContacts(FindText, value); 
+                _contacts = Project.SortingContacts(FindText, value);
+                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged(nameof(Finded));
             }
         }
@@ -75,6 +78,8 @@ namespace ViewModel.ControlsVM
             {
 
                 _findText = value;
+                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged(nameof(FindText));
             }
         }
@@ -91,23 +96,22 @@ namespace ViewModel.ControlsVM
             set
             {
                 _selectedContact = value;
+                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged(nameof(SelectedContact));
             }
         }
 
-        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets AddCommand contact command.
         /// </summary>
         public Command AddCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets RemoveCommand contact command.
         /// </summary>
         public Command RemoveCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets EditCommand contact command.
         /// </summary>
@@ -164,14 +168,11 @@ namespace ViewModel.ControlsVM
                 return;
             }
 
-            // TODO: длинная строка, больше 100 символов.. (+)
-            //.. переформатировать, чтобы было не больше 100
             ContactVM window =
                 new ContactVM((Contact)selectedContact.Clone(),
                     _contactWindowService);
             _contactWindowService.Open(window);
 
-            // TODO: сравнение с true в условиях не делают (+)
             if (_contactWindowService.DialogResult)
             {
                 var index = Contacts.IndexOf(selectedContact);

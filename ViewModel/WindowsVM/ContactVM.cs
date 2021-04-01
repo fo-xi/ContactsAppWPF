@@ -5,23 +5,23 @@ using ViewModel.Service;
 
 namespace ViewModel.WindowsVM
 {
-    // TODO: именование класса - зачем куча глаголов в начале? (+)
     /// <summary>
     /// View Model for window Contact.
     /// </summary>
     public class ContactVM : NotifyPropertyChanged
     {
-        // TODO: именование (+)
         /// <summary>
         /// AddCommand or EditCommand Contact.
         /// </summary>
         private Contact _contact;
 
+        // TODO: поле нигде не используется
         /// <summary>
         /// Responsible for calling the AddEditContactWindow.
         /// </summary>
         private IAddEditContactWindowService _contactWindowService;
 
+        // TODO: не очевидное название. Is Enabled что?
         /// <summary>
         /// Returns access to the button.
         /// </summary>
@@ -33,7 +33,6 @@ namespace ViewModel.WindowsVM
             }
         }
 
-        // TODO: именование (+)
         /// <summary>
         /// Returns and sets AddCommand or EditCommand Contact.
         /// </summary>
@@ -51,13 +50,11 @@ namespace ViewModel.WindowsVM
             }
         }
 
-        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets Ok command.
         /// </summary>
         public Command OKCommand { get; set; }
 
-        // TODO: свойство с командой должно в название добавлять слово Command (+)
         /// <summary>
         /// Returns and sets CancelCommand command.
         /// </summary>
@@ -76,6 +73,7 @@ namespace ViewModel.WindowsVM
             CancelCommand = contactWindowService.CancelCommand;
         }
 
+        // TODO: этот метод уже есть в базовом классе, использовать готовый метод
         /// <summary>
         /// Responsible for updating the access to the button.
         /// </summary>

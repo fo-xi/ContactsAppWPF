@@ -83,7 +83,6 @@ namespace ContactsApp
         /// </summary>
         public PhoneNumber Number { get; set; }
 
-        // TODO: день рождения в разных местах называется по-разному. Сделать единообразно (+)
         /// <summary>
         /// Returns and sets the contact's birthday.
         /// </summary>

@@ -4,13 +4,11 @@ using ViewModel.WindowsVM;
 
 namespace ContactsAppUI.Service
 {
-    // TODO: xml (+)
     /// <summary>
     /// Сlass responsible for showing window.
     /// </summary>
     public class ContactWindowService : IAddEditContactWindowService
     {
-        // TODO: xml (+)
         /// <summary>
         /// Window for adding and editing a contact.
         /// </summary>
@@ -31,7 +29,6 @@ namespace ContactsAppUI.Service
         /// </summary>
         public Command CancelCommand { get; set; }
 
-        // TODO: команда может быть в реализации сервиса окна (+)
         /// <summary>
         /// Ok command.
         /// </summary>
@@ -42,7 +39,6 @@ namespace ContactsAppUI.Service
             Close();
         }
 
-        // TODO: команда может быть в реализации сервиса окна (+)
         /// <summary>
         /// Cancel command.
         /// </summary>
@@ -53,7 +49,6 @@ namespace ContactsAppUI.Service
             Close();
         }
 
-        // TODO: xml (+)
         /// <summary>
         /// Opens a window.
         /// </summary>
@@ -64,7 +59,6 @@ namespace ContactsAppUI.Service
             _addEditWindow.ShowDialog();
         }
 
-        // TODO: xml (+)
         /// <summary>
         /// Closes the window.
         /// </summary>

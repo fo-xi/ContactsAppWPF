@@ -6,14 +6,12 @@ using ViewModel.WindowsVM;
 
 namespace ViewModel
 {
-    // BUG: При первом запуске редактирование контакта не работает, не обновляется (+)
-    // BUG: Контакты не сортируются по алфавиту после редактирования (+)
-    // TODO: Любая VM должна реализовывать интерфейс INotifyPropertyChanged (+)
     /// <summary>
     /// View Model for window MainWindow.
     /// </summary>
     public class MainWindowVM : NotifyPropertyChanged
     {
+        // TODO: поле инициализируется в конструкторе, здесь создавать объект не нужно
         /// <summary>
         /// Stores a list of all contacts created in the app.
         /// </summary>
@@ -50,7 +48,6 @@ namespace ViewModel
             }
         }
 
-        // TODO: именование (+)
         /// <summary>
         /// A contact list.
         /// </summary>
@@ -77,11 +74,10 @@ namespace ViewModel
             СontactsVM = new СontactsVM(messageBoxService, 
                 contactWindowService, Project.SortingContacts(_project.Contacts));
 
+            // TODO: именование
             var listBirthContacts = _project.GetDateBirth(DateTime.Now);
             BirthdayVM = new BirthdayVM(listBirthContacts);
-
-            // TODO: если реализация команд в этой VM, то почему они хранятся в другой? (+)
-
+            
             СontactsVM.PropertyChanged += OnTextChanged;
         }
 
