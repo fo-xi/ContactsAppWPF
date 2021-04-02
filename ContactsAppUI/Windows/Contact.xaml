@@ -38,7 +38,7 @@
                 Margin="5"
                 Command="{Binding OKCommand}"
                 Content="OK"
-                IsEnabled="{Binding IsEnabled}" />
+                IsEnabled="{Binding IsEnabledButton}" />
             <Button
                 x:Name="buttonCancel"
                 Grid.Column="1"

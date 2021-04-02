@@ -19,12 +19,12 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private string _findText;
 
-        // TODO: почему public?
-        // TODO: Это правильное название?
+        // TODO: почему public? (+)
+        // TODO: Это правильное название? (+)
         /// <summary>
-        /// List of all contacts.
+        /// List of found contacts.
         /// </summary>
-        public ObservableCollection<Contact> _contacts;
+        private ObservableCollection<Contact> _findedContacts;
 
         /// <summary>
         /// Selected Contact.
@@ -46,22 +46,22 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private IContactWindowService _contactWindowService;
 
-        // TODO: Finded (-) FindedContacts
+        // TODO: Finded (-) FindedContacts (+)
         /// <summary>
         /// Returns and sets a list of all found contacts.
         /// </summary>
-        public ObservableCollection<Contact> Finded
+        public ObservableCollection<Contact> FindedContacts
         {
             get
             {
-                return _contacts;
+                return _findedContacts;
             }
             set
             {
-                _contacts = Project.SortingContacts(FindText, value);
+                _findedContacts = Project.SortingContacts(FindText, value);
                 // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
                 // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
-                OnPropertyChanged(nameof(Finded));
+                OnPropertyChanged(nameof(FindedContacts));
             }
         }
 
@@ -133,7 +133,7 @@ namespace ViewModel.ControlsVM
                 Contacts.Add(window.Contact);
             }
 
-            Finded = Contacts;
+            FindedContacts = Contacts;
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace ViewModel.ControlsVM
             }
 
            Contacts.Remove(selectedContact);
-           Finded = Contacts;
+           FindedContacts = Contacts;
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace ViewModel.ControlsVM
                Contacts[index] = window.Contact;
             }
 
-            Finded = Contacts;
+            FindedContacts = Contacts;
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace ViewModel.ControlsVM
             ObservableCollection<Contact> contacts = null)
         {
              FindText = string.Empty;
-             Contacts = Finded = contacts;
+             Contacts = FindedContacts = contacts;
 
              _messageBoxService = messageBoxService;
              _contactWindowService = contactWindowService;

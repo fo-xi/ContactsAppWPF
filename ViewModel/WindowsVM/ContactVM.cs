@@ -21,11 +21,11 @@ namespace ViewModel.WindowsVM
         /// </summary>
         private IContactWindowService _contactWindowService;
 
-        // TODO: не очевидное название. Is Enabled что?
+        // TODO: не очевидное название. Is Enabled что? (+)
         /// <summary>
         /// Returns access to the button.
         /// </summary>
-        public bool IsEnabled
+        public bool IsEnabledButton
         {
             get
             {
@@ -81,7 +81,7 @@ namespace ViewModel.WindowsVM
         /// <param name="e"></param>
         private void ContactChanged(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(nameof(IsEnabled));
+            OnPropertyChanged(nameof(IsEnabledButton));
         }
     }
 }

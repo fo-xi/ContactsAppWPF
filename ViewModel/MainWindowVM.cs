@@ -11,11 +11,11 @@ namespace ViewModel
     /// </summary>
     public class MainWindowVM : NotifyPropertyChangedBase
     {
-        // TODO: поле инициализируется в конструкторе, здесь создавать объект не нужно
+        // TODO: поле инициализируется в конструкторе, здесь создавать объект не нужно (+)
         /// <summary>
         /// Stores a list of all contacts created in the app.
         /// </summary>
-        private Project _project = new Project();
+        private Project _project;
 
         /// <summary>
         /// СontactsVM's birthday.
@@ -74,9 +74,9 @@ namespace ViewModel
             СontactsVM = new СontactsVM(messageBoxService, 
                 contactWindowService, Project.SortingContacts(_project.Contacts));
 
-            // TODO: именование
-            var listBirthContacts = _project.GetDateBirth(DateTime.Now);
-            BirthdayVM = new BirthdayVM(listBirthContacts);
+            // TODO: именование (+)
+            var contactsBirthday = _project.GetDateBirth(DateTime.Now);
+            BirthdayVM = new BirthdayVM(contactsBirthday);
             
             СontactsVM.PropertyChanged += OnTextChanged;
         }
@@ -105,7 +105,7 @@ namespace ViewModel
             }
 
             _oldFindText = listСontactsVm.FindText;
-            listСontactsVm.Finded = Project.SortingContacts
+            listСontactsVm.FindedContacts = Project.SortingContacts
                 (listСontactsVm.FindText, СontactsVM.Contacts);
         }
     }

@@ -74,7 +74,7 @@
             Name="ContactList"
             Grid.Row="1"
             Margin="5"
-            ItemsSource="{Binding Finded}"
+            ItemsSource="{Binding FindedContacts}"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
             SelectedItem="{Binding SelectedContact}">
             <ListBox.ItemTemplate>
