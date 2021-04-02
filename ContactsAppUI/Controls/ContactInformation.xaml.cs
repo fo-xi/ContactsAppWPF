@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
 
-namespace ContactsAppUI
+namespace ContactsAppUI.Controls
 {
     /// <summary>
-    /// Interaction logic for ContactInformation.xaml
+    /// ContactInformation control.
     /// </summary>
     public partial class ContactInformation : UserControl
     {

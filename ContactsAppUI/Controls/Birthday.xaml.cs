@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
 
-namespace ContactsAppUI
+namespace ContactsAppUI.Controls
 {
     /// <summary>
-    /// Interaction logic for BirthdayVM.xaml
+    /// Birthday control.
     /// </summary>
     public partial class Birthday : UserControl
     {

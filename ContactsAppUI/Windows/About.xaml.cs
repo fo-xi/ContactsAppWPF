@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 
-namespace ContactsAppUI
+namespace ContactsAppUI.Windows
 {
     /// <summary>
-    /// Interaction logic for About.xaml
+    /// About window.
     /// </summary>
     public partial class About : Window
     {

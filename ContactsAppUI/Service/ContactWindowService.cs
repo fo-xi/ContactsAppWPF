@@ -1,4 +1,5 @@
-﻿using ViewModel;
+﻿using ContactsAppUI.Windows;
+using ViewModel;
 using ViewModel.Service;
 using ViewModel.WindowsVM;
 
@@ -12,7 +13,7 @@ namespace ContactsAppUI.Service
         /// <summary>
         /// Window for adding and editing a contact.
         /// </summary>
-        private AddEditContact _addEditWindow;
+        private Contact _addEditWindow;
 
         /// <summary>
         /// DialogResult.
@@ -55,7 +56,7 @@ namespace ContactsAppUI.Service
         /// <param name="contact">Contact.</param>
         public void Open(ContactVM contact)
         {
-            _addEditWindow = new AddEditContact(contact);
+            _addEditWindow = new Contact(contact);
             _addEditWindow.ShowDialog();
         }
 

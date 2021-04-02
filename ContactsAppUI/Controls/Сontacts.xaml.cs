@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
 
-namespace ContactsAppUI
+namespace ContactsAppUI.Controls
 {
     /// <summary>
-    /// Interaction logic for СontactsVM.xaml
+    /// Сontacts control.
     /// </summary>
     public partial class Сontacts : UserControl
     {
