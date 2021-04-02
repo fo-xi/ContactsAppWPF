@@ -9,7 +9,7 @@ namespace ViewModel
     /// <summary>
     /// View Model for window MainWindow.
     /// </summary>
-    public class MainWindowVM : NotifyPropertyChanged
+    public class MainWindowVM : NotifyPropertyChangedBase
     {
         // TODO: поле инициализируется в конструкторе, здесь создавать объект не нужно
         /// <summary>
@@ -68,7 +68,7 @@ namespace ViewModel
         /// Creation of information about all contacts.
         /// </summary>
         public MainWindowVM(IMessageBoxService messageBoxService,
-            IAddEditContactWindowService contactWindowService)
+            IContactWindowService contactWindowService)
         {
             _project = ProjectManager.ReadFromFile();
             СontactsVM = new СontactsVM(messageBoxService, 

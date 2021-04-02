@@ -8,7 +8,7 @@ namespace ContactsAppUI.Service
     /// <summary>
     /// Сlass responsible for showing window.
     /// </summary>
-    public class ContactWindowService : IAddEditContactWindowService
+    public class ContactWindowService : IContactWindowService
     {
         /// <summary>
         /// Window for adding and editing a contact.

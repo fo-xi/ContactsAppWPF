@@ -12,7 +12,7 @@ namespace ViewModel.ControlsVM
     /// <summary>
     /// View model for control СontactsVM.
     /// </summary>
-    public class СontactsVM : NotifyPropertyChanged
+    public class СontactsVM : NotifyPropertyChangedBase
     {
         /// <summary>
         /// The string by which we are looking for contacts. 
@@ -44,7 +44,7 @@ namespace ViewModel.ControlsVM
         /// <summary>
         /// Responsible for calling the AddEditContactWindow.
         /// </summary>
-        private IAddEditContactWindowService _contactWindowService;
+        private IContactWindowService _contactWindowService;
 
         // TODO: Finded (-) FindedContacts
         /// <summary>
@@ -187,7 +187,7 @@ namespace ViewModel.ControlsVM
         /// </summary>
         /// <param name="contacts"></param>
         public СontactsVM(IMessageBoxService messageBoxService,
-            IAddEditContactWindowService contactWindowService, 
+            IContactWindowService contactWindowService, 
             ObservableCollection<Contact> contacts = null)
         {
              FindText = string.Empty;

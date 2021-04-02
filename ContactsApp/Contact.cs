@@ -1,17 +1,37 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace ContactsApp
 {
     /// <summary>
     /// A class containing all information about the contact.
     /// </summary>
-    public class Contact : NotifyDataError, ICloneable
+    public class Contact : NotifyDataErrorInfoBase, ICloneable
     {
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
+        /// <summary>
+        /// Minimum string length.
+        /// </summary>
+        private const int MinLength = 1;
+
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
+        /// <summary>
+        /// Maximum string length. 
+        /// </summary>
+        private const int MaxLength = 50;
+
+        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
+        /// <summary>
+        /// Minimum year allowed.
+        /// </summary>
+        private const int MinYear = 1900;
+
+        /// <summary>
+        /// Maximum string IDVK.
+        /// </summary>
+        private const int MaxID = 15;
+
         /// <summary>
         /// Contact's surname.
         /// </summary>
@@ -56,7 +76,7 @@ namespace ContactsApp
             get { return _surname; }
             set
             {
-                Validate(value, nameof(Surname));
+                Validate(value, MinLength, MaxLength, nameof(Surname));
                 _surname = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Surname));
                 OnPropertyChanged(nameof(HasErrors));
@@ -71,7 +91,7 @@ namespace ContactsApp
             get { return _name; }
             set
             {
-                Validate(value, nameof(Name));
+                Validate(value, MinLength, MaxLength, nameof(Name));
                 _name = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(HasErrors));
@@ -91,7 +111,7 @@ namespace ContactsApp
             get { return _birthday; }
             set
             {
-                Validate(value, nameof(Birthday));
+                Validate(value, MinYear, nameof(Birthday));
                 _birthday = value;
                 OnPropertyChanged(nameof(Birthday));
                 OnPropertyChanged(nameof(HasErrors));
@@ -106,7 +126,7 @@ namespace ContactsApp
             get { return _email; }
             set
             {
-                Validate(value, nameof(Email));
+                Validate(value, MinLength, MaxLength, nameof(Email));
                 _email = value;
                 OnPropertyChanged(nameof(Email));
                 OnPropertyChanged(nameof(HasErrors));
@@ -121,7 +141,7 @@ namespace ContactsApp
             get { return _vkID; }
             set
             {
-                Validate(value, nameof(VKID));
+                Validate(value, MinLength, MaxID, nameof(VKID));
                 _vkID = value;
                 OnPropertyChanged(nameof(VKID));
                 OnPropertyChanged(nameof(HasErrors));

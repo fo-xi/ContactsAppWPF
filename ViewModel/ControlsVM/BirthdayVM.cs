@@ -8,7 +8,7 @@ namespace ViewModel.ControlsVM
     /// <summary>
     /// View model for control BirthdayVM.
     /// </summary>
-    public class BirthdayVM : NotifyPropertyChanged
+    public class BirthdayVM : NotifyPropertyChangedBase
     {
         /// <summary>
         /// BirthdayVM list.

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    // TODO: к названию абстрактных классов должно добавляться слово Base
-    public abstract class NotifyPropertyChanged : INotifyPropertyChanged
+    // TODO: к названию абстрактных классов должно добавляться слово Base (+)
+    public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
     {
         /// <summary>
         /// Event that will react to changes in the property.

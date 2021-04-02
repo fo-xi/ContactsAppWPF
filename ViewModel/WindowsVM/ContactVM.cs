@@ -8,7 +8,7 @@ namespace ViewModel.WindowsVM
     /// <summary>
     /// View Model for window Contact.
     /// </summary>
-    public class ContactVM : NotifyPropertyChanged
+    public class ContactVM : NotifyPropertyChangedBase
     {
         /// <summary>
         /// AddCommand or EditCommand Contact.
@@ -19,7 +19,7 @@ namespace ViewModel.WindowsVM
         /// <summary>
         /// Responsible for calling the AddEditContactWindow.
         /// </summary>
-        private IAddEditContactWindowService _contactWindowService;
+        private IContactWindowService _contactWindowService;
 
         // TODO: не очевидное название. Is Enabled что?
         /// <summary>
@@ -64,7 +64,7 @@ namespace ViewModel.WindowsVM
         /// Create a contact to add or edit.
         /// </summary>
         /// <param name="contact">AddCommand or EditCommand Contact.</param>
-        public ContactVM(Contact contact, IAddEditContactWindowService contactWindowService)
+        public ContactVM(Contact contact, IContactWindowService contactWindowService)
         {
             Contact = contact;
             _contactWindowService = contactWindowService;

@@ -3,34 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    // TODO: к названию абстрактных классов должно добавляться слово Base
-    // TODO: потерялось слово Info в названии класса из названия интерфейса
-    public abstract class NotifyDataError : NotifyPropertyChanged, INotifyDataErrorInfo
+    // TODO: к названию абстрактных классов должно добавляться слово Base (+)
+    // TODO: потерялось слово Info в названии класса из названия интерфейса (+)
+    public abstract class NotifyDataErrorInfoBase : NotifyPropertyChangedBase, INotifyDataErrorInfo
     {
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
-        /// <summary>
-        /// Minimum string length.
-        /// </summary>
-        private const int MinLength = 1;
-
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
-        /// <summary>
-        /// Maximum string length 
-        /// </summary>
-        private const int MaxLength = 50;
-
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact
-        /// <summary>
-        /// Minimum year allowed.
-        /// </summary>
-        private const int MinYear = 1900;
-
         /// <summary>
         /// Contains a dictionary of errors.
         /// </summary>
@@ -109,11 +88,12 @@ namespace ContactsApp
         /// </summary>
         /// <param name="value">Value.</param>
         /// <param name="propertyName">Property Name.</param>
-        public void Validate(string value, string propertyName)
+        public void Validate(string value, int minLength, 
+            int maxLength, string propertyName)
         {
             ClearErrors(propertyName);
-            if (!Validator.AssertStringLength(value, MinLength, 
-                MaxLength, out var valueString))
+            if (!Validator.AssertStringLength(value, minLength,
+                maxLength, out var valueString))
             {
                 AddError(propertyName, valueString);
             }
@@ -124,10 +104,10 @@ namespace ContactsApp
         /// </summary>
         /// <param name="value">Value.</param>
         /// <param name="propertyName">Property Name.</param>
-        public void Validate(DateTime value, string propertyName)
+        public void Validate(DateTime value, int minYear, string propertyName)
         {
             ClearErrors(propertyName);
-            if (!Validator.AssertBirthday(value, MinYear, out var valueString))
+            if (!Validator.AssertBirthday(value, minYear, out var valueString))
             {
                 AddError(propertyName, valueString);
             }

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using ContactsApp;
 using ContactsAppUI.Service;
+using ContactsAppUI.Windows;
 using ViewModel;
 
 namespace ContactsAppUI

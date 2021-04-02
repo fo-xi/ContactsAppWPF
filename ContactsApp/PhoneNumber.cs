@@ -10,7 +10,7 @@ namespace ContactsApp
     /// <summary>
     /// Class containing information about the phone number.
     /// </summary>
-    public class PhoneNumber : NotifyDataError
+    public class PhoneNumber : NotifyDataErrorInfoBase
     {
         /// <summary>
         /// Contains information about the phone number.

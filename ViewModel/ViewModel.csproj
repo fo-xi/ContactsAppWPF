@@ -45,7 +45,7 @@
     <Compile Include="ControlsVM\BirthdayVM.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Service\IMessageBoxService.cs" />
-    <Compile Include="Service\IAddEditContactWindowService.cs" />
+    <Compile Include="Service\IContactWindowService.cs" />
     <Compile Include="ControlsVM\СontactsVM.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="Properties\Annotations.cs" />

@@ -11,7 +11,7 @@ namespace ContactsApp
     /// A class containing a list of all contacts 
     /// created in the app.
     /// </summary>
-    public class Project : NotifyPropertyChanged
+    public class Project : NotifyPropertyChangedBase
     {
         /// <summary>
         /// All contacts.
