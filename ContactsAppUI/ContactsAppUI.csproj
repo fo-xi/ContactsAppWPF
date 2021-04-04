@@ -136,9 +136,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Symbol.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +157,8 @@
       <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\alert.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

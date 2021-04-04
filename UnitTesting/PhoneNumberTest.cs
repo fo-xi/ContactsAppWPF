@@ -8,7 +8,6 @@ namespace UnitTesting
 {
     class PhoneNumberTest
     {
-
         [Test(Description = "Positive test of the getter Number")]
         public void TestNumberGet_CorrectValue()
         {
