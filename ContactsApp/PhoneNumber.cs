@@ -27,7 +27,7 @@ namespace ContactsApp
             {
                 ClearErrors(nameof(Number));
 
-                if (!Validator.AssertPhoneNumber(value, out var valueString))
+                if (!Validator.IsPhoneNumber(value, out var valueString))
                 {
                     AddError(nameof(Number), valueString);
                 }

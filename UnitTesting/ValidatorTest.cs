@@ -12,10 +12,7 @@ namespace UnitTesting
         public void TestStringLength_CorrectValue()
         {
             var expected = "Ilya";
-            Assert.DoesNotThrow(() =>
-            {
-                Validator.AssertStringLength(expected, 1, 50);
-            }, "An exception should occur if the string is not in the specified rang");
+            Assert.IsTrue(Validator.IsStringLength(expected, 1, 50, out string message));
         }
 
         [Test(Description = "A positive validator test that checks whether " +
@@ -23,10 +20,7 @@ namespace UnitTesting
         public void TestPhoneNumber_CorrectValue()
         {
             var expected = "71234567891";
-            Assert.DoesNotThrow(() =>
-            {
-                Validator.AssertPhoneNumber(expected);
-            }, "An exception should occur if the number does not start with 7");
+            Assert.IsTrue(Validator.IsPhoneNumber(expected, out string message));
         }
 
         [Test(Description = "A positive validator that checks " +
@@ -34,11 +28,7 @@ namespace UnitTesting
         public void TestDateBirth_CorrectValue()
         {
             DateTime expected = new DateTime(2000, 11, 21);
-            Assert.DoesNotThrow(() =>
-            {
-                Validator.AssertBirthday(expected, 1900);
-            }, "An exception should occur if the " +
-            "date of birth is not in the specified range");
+            Assert.IsTrue(Validator.IsBirthday(expected, 1900, out string message));
         }
 
         [Test(Description = "A positive validator test that check " +
@@ -59,7 +49,7 @@ namespace UnitTesting
         {
             Assert.Throws<ArgumentException>(() =>
             {
-                Validator.AssertStringLength(wrongString, 1, 50);
+                Validator.IsStringLength(wrongString, 1, 50, out string srting);
             }, message);
         }
         [TestCase("91234567891", "An exception may occur if the phone number " +
@@ -74,7 +64,7 @@ namespace UnitTesting
         {
             Assert.Throws<ArgumentException>(() =>
             {
-                Validator.AssertPhoneNumber(wrongPhoneNumber);
+                Validator.IsPhoneNumber(wrongPhoneNumber, out string srting);
             }, message);
         }
 
@@ -88,7 +78,7 @@ namespace UnitTesting
             var wrongDateBirth = new DateTime(year, month, day);
             Assert.Throws<ArgumentException>(() =>
             {
-                Validator.AssertBirthday(wrongDateBirth, 1900);
+                Validator.IsBirthday(wrongDateBirth, 1900, out string srting);
             }, message);
         }
     }

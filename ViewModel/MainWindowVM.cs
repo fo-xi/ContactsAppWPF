@@ -44,7 +44,7 @@ namespace ViewModel
             set
             {
                 _birthdayVM = value;
-                OnPropertyChanged(nameof(BirthdayVM));
+                OnPropertyChanged();
             }
         }
 
@@ -60,7 +60,7 @@ namespace ViewModel
             set
             {
                 _contactVM = value;
-                OnPropertyChanged(nameof(СontactsVM));
+                OnPropertyChanged();
             }
         }
 

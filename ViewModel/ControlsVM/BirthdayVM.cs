@@ -27,7 +27,7 @@ namespace ViewModel.ControlsVM
             set
             {
                 _listBirthdayContact = value;
-                OnPropertyChanged(nameof(ListBirthdayContact));
+                OnPropertyChanged();
             }
 
         }

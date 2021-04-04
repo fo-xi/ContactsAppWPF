@@ -92,7 +92,7 @@ namespace ContactsApp
             int maxLength, string propertyName)
         {
             ClearErrors(propertyName);
-            if (!Validator.AssertStringLength(value, minLength,
+            if (!Validator.IsStringLength(value, minLength,
                 maxLength, out var valueString))
             {
                 AddError(propertyName, valueString);
@@ -107,7 +107,7 @@ namespace ContactsApp
         public void Validate(DateTime value, int minYear, string propertyName)
         {
             ClearErrors(propertyName);
-            if (!Validator.AssertBirthday(value, minYear, out var valueString))
+            if (!Validator.IsBirthday(value, minYear, out var valueString))
             {
                 AddError(propertyName, valueString);
             }

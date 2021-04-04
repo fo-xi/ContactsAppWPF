@@ -13,8 +13,10 @@ namespace UnitTesting
         public void TestNumberGet_CorrectValue()
         {
             var expected = "71234567891";
-            var phoneNumber = new PhoneNumber("71234567000");
-            phoneNumber.Number = expected;
+            var phoneNumber = new PhoneNumber("71234567000")
+            {
+                Number = expected
+            };
             var actual = phoneNumber.Number;
             Assert.AreEqual(expected, actual, "The Number getter " +
                 "returns an incorrect phone number");

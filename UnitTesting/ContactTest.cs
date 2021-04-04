@@ -13,8 +13,10 @@ namespace UnitTesting
         {
             var expected = "Bogdanov";
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.Surname = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                Surname = expected
+            };
             var actual = contact.Surname;
             Assert.AreEqual(expected, actual, "The Surname getter " +
                 "returns an incorrect surname");
@@ -52,8 +54,10 @@ namespace UnitTesting
         {
             var expected = "Ilya";
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.Name = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                Name = expected
+            };
             var actual = contact.Name;
             Assert.AreEqual(expected, actual, "The Name getter " +
                 "returns an incorrect name");
@@ -91,8 +95,10 @@ namespace UnitTesting
         {
             var expected = new PhoneNumber("71459567000");
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.Number = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                Number = expected
+            };
             var actual = contact.Number;
             Assert.AreEqual(expected, actual, "The PhoneNumber getter " +
                 "returns an incorrect phone number");
@@ -115,8 +121,10 @@ namespace UnitTesting
         {
             var expected = new DateTime(2000, 6, 4);
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.Birthday = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                Birthday = expected
+            };
             var actual = contact.Birthday;
             Assert.AreEqual(expected, actual, "The Birthday getter " +
                 "returns an incorrect date of birth");
@@ -155,8 +163,10 @@ namespace UnitTesting
         {
             var expected = "pupu@gmail.com";
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.Email = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                Email = expected
+            };
             var actual = contact.Email;
             Assert.AreEqual(expected, actual, "The Email getter " +
                 "returns an incorrect e-mail");
@@ -194,8 +204,10 @@ namespace UnitTesting
         {
             var expected = "648562";
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
-                new DateTime(2000, 11, 21), " ", " ");
-            contact.VKID = expected;
+                new DateTime(2000, 11, 21), " ", " ")
+            {
+                VKID = expected
+            };
             var actual = contact.VKID;
             Assert.AreEqual(expected, actual, "The VKID getter " +
                 "returns an incorrect vk id");

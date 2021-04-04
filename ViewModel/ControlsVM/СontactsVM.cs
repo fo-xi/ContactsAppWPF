@@ -59,9 +59,9 @@ namespace ViewModel.ControlsVM
             set
             {
                 _findedContacts = Project.SortingContacts(FindText, value);
-                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
-                OnPropertyChanged(nameof(FindedContacts));
+                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName - 
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя. (+)
+                OnPropertyChanged();
             }
         }
 
@@ -79,8 +79,8 @@ namespace ViewModel.ControlsVM
 
                 _findText = value;
                 // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
-                OnPropertyChanged(nameof(FindText));
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя. (+)
+                OnPropertyChanged();
             }
         }
 
@@ -97,8 +97,8 @@ namespace ViewModel.ControlsVM
             {
                 _selectedContact = value;
                 // TODO: метод реализован в базовом классе с атрибутом CallerMemberName -
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
-                OnPropertyChanged(nameof(SelectedContact));
+                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя. (+)
+                OnPropertyChanged();
             }
         }
 

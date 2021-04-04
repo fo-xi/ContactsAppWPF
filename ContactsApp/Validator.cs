@@ -7,7 +7,7 @@ namespace ContactsApp
     /// </summary>
     public static class Validator
     {
-        // TODO: ЕЩЕ РАЗ: если проверяющий метод возвращает bool, он именуется от слова Is.
+        // TODO: ЕЩЕ РАЗ: если проверяющий метод возвращает bool, он именуется от слова Is. (+)
         // .. Если проверяющий метод кидает исключения, то он именуется от слова Assert.
         /// <summary>
         /// Checks whether the number of characters 
@@ -16,7 +16,7 @@ namespace ContactsApp
         /// <param name="value">Value set by the user.</param>
         /// <param name="initialLength">The beginning of the border.</param>
         /// <param name="finalLength">The end of the border.</param>
-        public static bool AssertStringLength(string value,
+        public static bool IsStringLength(string value,
             int initialLength, int finalLength, out string message)
         {
             message = String.Empty;
@@ -49,7 +49,7 @@ namespace ContactsApp
         /// Checking the phone number for the first digit.
         /// </summary>
         /// <param name="value">Phone number.</param>
-        public static bool AssertPhoneNumber(string value, out string message)
+        public static bool IsPhoneNumber(string value, out string message)
         {
             message = String.Empty;
 
@@ -68,7 +68,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="value">Date of birth.</param>
         /// <param name="initialLength">Interval start.</param>
-        public static bool AssertBirthday(DateTime value,
+        public static bool IsBirthday(DateTime value,
             int initialLength, out string message)
         {
             message = String.Empty;

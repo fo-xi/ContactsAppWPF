@@ -35,14 +35,16 @@ namespace UnitTesting
                 File.Delete(ProjectManager.Path);
             }
             File.Create(ProjectManager.Path).Close();
-            
-            var newProject = new Project();
-            newProject.Contacts = new ObservableCollection<Contact>()
+
+            var newProject = new Project
             {
-                new Contact ("Bogdanov", "Ilya", new PhoneNumber("71234567891"),
-                new DateTime(2013, 6, 7), "tryfe@gmail.com", "795566"),
-                new Contact ("Romanova", "Elena", new PhoneNumber("71233557791"),
-                new DateTime(2011, 3, 8), "gbf@yandex.com", "807463"),
+                Contacts = new ObservableCollection<Contact>()
+                {
+                    new Contact ("Bogdanov", "Ilya", new PhoneNumber("71234567891"),
+                    new DateTime(2013, 6, 7), "tryfe@gmail.com", "795566"),
+                    new Contact ("Romanova", "Elena", new PhoneNumber("71233557791"),
+                    new DateTime(2011, 3, 8), "gbf@yandex.com", "807463"),
+                }
             };
             var expectedString = JsonConvert.SerializeObject(newProject);
             ProjectManager.WriteToFile(newProject);

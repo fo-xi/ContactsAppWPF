@@ -30,7 +30,7 @@ namespace ContactsApp
             set
             {
                 _contacts = value;
-                OnPropertyChanged(nameof(Contacts));
+                OnPropertyChanged();
             }
         }
 

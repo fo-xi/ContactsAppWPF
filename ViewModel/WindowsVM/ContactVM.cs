@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using ContactsApp;
 using ViewModel.Service;
 
@@ -14,12 +13,6 @@ namespace ViewModel.WindowsVM
         /// AddCommand or EditCommand Contact.
         /// </summary>
         private Contact _contact;
-
-        // TODO: поле нигде не используется
-        /// <summary>
-        /// Responsible for calling the AddEditContactWindow.
-        /// </summary>
-        private IContactWindowService _contactWindowService;
 
         // TODO: не очевидное название. Is Enabled что? (+)
         /// <summary>
@@ -67,7 +60,6 @@ namespace ViewModel.WindowsVM
         public ContactVM(Contact contact, IContactWindowService contactWindowService)
         {
             Contact = contact;
-            _contactWindowService = contactWindowService;
 
             OKCommand = contactWindowService.OKCommand;
             CancelCommand = contactWindowService.CancelCommand;
