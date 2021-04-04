@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Margin="5,5,5,0">
+        <Grid Margin="5 5 5 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -39,7 +39,7 @@
 		<ListBox
             Name="ContactList"
             Grid.Row="1"
-            Margin="5"
+            Margin="5 5 5 0"
             ItemsSource="{Binding FindedContacts}"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
             SelectedItem="{Binding SelectedContact}">
