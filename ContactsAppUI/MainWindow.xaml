@@ -40,8 +40,8 @@
                 <MenuItem x:Name="About" Header="About" />
             </MenuItem>
         </Menu>
-
-        <local:Сontacts
+		
+		<local:Сontacts
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="0"
