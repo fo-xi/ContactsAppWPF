@@ -10,6 +10,9 @@
     Height="400"
     ResizeMode="NoResize"
     mc:Ignorable="d">
+    <Window.Icon>
+        <DrawingImage />
+    </Window.Icon>
     <Grid>
         <TextBlock
             Margin="10"

@@ -13,6 +13,9 @@
     d:DataContext="{d:DesignInstance windowsVm:ContactVM}"
     ResizeMode="NoResize"
     mc:Ignorable="d">
+    <Window.Icon>
+        <DrawingImage />
+    </Window.Icon>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

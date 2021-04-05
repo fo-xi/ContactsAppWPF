@@ -64,7 +64,7 @@ namespace ContactsApp
         {
             get
             {
-                return _errorsByPropertyName.Any() || Number.HasErrors;
+                return base.HasErrors || Number.HasErrors;
             }
         }
 

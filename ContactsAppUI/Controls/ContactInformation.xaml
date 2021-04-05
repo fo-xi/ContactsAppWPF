@@ -16,7 +16,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <!--TODO а строки должны растягиваться при увеличении высоты контрола?-->
+        <!--  TODO а строки должны растягиваться при увеличении высоты контрола?  -->
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -25,7 +25,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <!--TODO лучше верстать таким образом, чтобы лейбл и текстбокс были рядом, а не в разных местах-->
+        <!--  TODO лучше верстать таким образом, чтобы лейбл и текстбокс были рядом, а не в разных местах  -->
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
@@ -75,7 +75,7 @@
             Name="datePickerBirthday"
             Grid.Row="2"
             Grid.Column="1"
-			Margin="0 5 0 5"
+            Margin="0,5,0,5"
             VerticalAlignment="Center"
             IsDropDownOpen="False"
             SelectedDate="{Binding Birthday, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"

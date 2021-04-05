@@ -32,10 +32,10 @@ namespace ContactsApp
         /// </summary>
         public virtual bool HasErrors
         {
-            get
-            {
-                return _errorsByPropertyName.Any();
-            }
+	        get
+	        {
+		        return _errorsByPropertyName.Any();
+	        }
         }
 
         /// <summary>

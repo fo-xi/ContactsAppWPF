@@ -25,7 +25,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
             <Image.Source>
-				<FormatConvertedBitmap Source="../Resources/alert.png" />
+                <FormatConvertedBitmap Source="../Resources/alert.png" />
             </Image.Source>
         </Image>
         <StackPanel
