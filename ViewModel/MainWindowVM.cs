@@ -2,7 +2,6 @@
 using ContactsApp;
 using ViewModel.ControlsVM;
 using ViewModel.Service;
-using ViewModel.WindowsVM;
 
 namespace ViewModel
 {

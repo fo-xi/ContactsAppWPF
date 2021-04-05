@@ -25,38 +25,13 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <!--  TODO лучше верстать таким образом, чтобы лейбл и текстбокс были рядом, а не в разных местах  -->
+        <!--  TODO лучше верстать таким образом, чтобы лейбл и текстбокс были рядом, а не в разных местах (+)  -->
+
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
             Style="{StaticResource TextBlockStyle}"
             Text="Surname:" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="0"
-            Style="{StaticResource TextBlockStyle}"
-            Text="Name:" />
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="0"
-            Style="{StaticResource TextBlockStyle}"
-            Text="Birthday:" />
-        <TextBlock
-            Grid.Row="3"
-            Grid.Column="0"
-            Style="{StaticResource TextBlockStyle}"
-            Text="Phone:" />
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="0"
-            Style="{StaticResource TextBlockStyle}"
-            Text="E-mail:" />
-        <TextBlock
-            Grid.Row="5"
-            Grid.Column="0"
-            Style="{StaticResource TextBlockStyle}"
-            Text="vk.com:" />
-
         <TextBox
             x:Name="textBoxSurname"
             Grid.Row="0"
@@ -64,6 +39,11 @@
             Style="{StaticResource TextBoxStyle}"
             Text="{Binding Surname, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource TextBlockStyle}"
+            Text="Name:" />
         <TextBox
             x:Name="textBoxName"
             Grid.Row="1"
@@ -71,6 +51,11 @@
             Style="{StaticResource TextBoxStyle}"
             Text="{Binding Name, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource TextBlockStyle}"
+            Text="Birthday:" />
         <DatePicker
             Name="datePickerBirthday"
             Grid.Row="2"
@@ -87,6 +72,11 @@
             </DatePicker.Resources>
         </DatePicker>
 
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Style="{StaticResource TextBlockStyle}"
+            Text="Phone:" />
         <TextBox
             x:Name="textBoxPhone"
             Grid.Row="3"
@@ -94,6 +84,11 @@
             Style="{StaticResource TextBoxStyle}"
             Text="{Binding Number.Number, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource TextBlockStyle}"
+            Text="E-mail:" />
         <TextBox
             x:Name="textBoxEmail"
             Grid.Row="4"
@@ -101,6 +96,11 @@
             Style="{StaticResource TextBoxStyle}"
             Text="{Binding Email, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Style="{StaticResource TextBlockStyle}"
+            Text="vk.com:" />
         <TextBox
             x:Name="textBoxVK"
             Grid.Row="5"

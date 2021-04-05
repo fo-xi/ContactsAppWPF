@@ -18,11 +18,11 @@ namespace ContactsAppUI
 
             DataContext = _mainWindow;
 
-            About.Command = new Command(OpenAbout);
+            ShowAboutWindow.Command = new Command(OpenAbout);
             Exit.Command = new Command(ExitMainWindow);
-            AddContact.Command = _mainWindow.СontactsVM.AddCommand;
-            EditContact.Command = _mainWindow.СontactsVM.EditCommand;
-            RemoveContact.Command = _mainWindow.СontactsVM.RemoveCommand;
+            AddContactCommand.Command = _mainWindow.СontactsVM.AddCommand;
+            EditContactCommand.Command = _mainWindow.СontactsVM.EditCommand;
+            RemoveContactCommand.Command = _mainWindow.СontactsVM.RemoveCommand;
 
             Closing += ClosingMainWindow;
         }
