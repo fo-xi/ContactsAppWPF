@@ -43,10 +43,8 @@ namespace UnitTesting
         {
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                contact.Surname = wrongSurname;
-            }, message);
+            contact.Surname = wrongSurname;
+            Assert.IsTrue(contact.HasErrors);
         }
 
         [Test(Description = "Positive test of the getter Name")]
@@ -84,10 +82,8 @@ namespace UnitTesting
         {
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                contact.Name = wrongName;
-            }, message);
+            contact.Name = wrongName;
+            Assert.IsTrue(contact.HasErrors);
         }
 
         [Test(Description = "Positive test of the getter PhoneNumber")]
@@ -152,10 +148,8 @@ namespace UnitTesting
             var wrongDateBirt = new DateTime(year, month, day);
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                contact.Birthday = wrongDateBirt;
-            }, message);
+            contact.Birthday = wrongDateBirt;
+            Assert.IsTrue(contact.HasErrors);
         }
 
         [Test(Description = "Positive test of the getter Email")]
@@ -193,10 +187,8 @@ namespace UnitTesting
         {
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                contact.Email = wrongEmail;
-            }, message);
+            contact.Email = wrongEmail;
+            Assert.IsTrue(contact.HasErrors);
         }
 
         [Test(Description = "Positive test of the getter VKID")]
@@ -234,10 +226,8 @@ namespace UnitTesting
         {
             var contact = new Contact(" ", " ", new PhoneNumber("71234567000"),
                 new DateTime(2000, 11, 21), " ", " ");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                contact.VKID = wrongVKID;
-            }, message);
+            contact.VKID = wrongVKID;
+            Assert.IsTrue(contact.HasErrors);
         }
 
         [Test(Description = "Positive test of the constructor Contact")]

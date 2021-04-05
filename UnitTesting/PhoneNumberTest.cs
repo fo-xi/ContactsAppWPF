@@ -42,11 +42,9 @@ namespace UnitTesting
             " that contains less than 11 digits")]
         public void TestPhoneNumber_InvalidPhoneNumber(string wrongPhoneNumber, string message)
         {
-            var phoneNumber = new PhoneNumber("71234567000");
-            Assert.Throws<ArgumentException>(() =>
-            {
-                phoneNumber.Number = wrongPhoneNumber;
-            }, message);
+	        var phoneNumber = new PhoneNumber("71234567000");
+	        phoneNumber.Number = wrongPhoneNumber;
+            Assert.IsTrue(phoneNumber.HasErrors);
         }
 
         [Test(Description = "Positive test of the constructor PhoneNumber")]
