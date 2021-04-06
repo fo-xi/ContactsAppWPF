@@ -15,7 +15,7 @@ namespace ContactsApp
         /// Event triggering.
         /// </summary>
         /// <param name="propertyName">Property Name.</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

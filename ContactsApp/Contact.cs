@@ -57,6 +57,31 @@ namespace ContactsApp
         private string _vkID;
 
         /// <summary>
+        /// Surname line state.
+        /// </summary>
+        private StateOfView _surnameState = StateOfView.Initial;
+
+        /// <summary>
+        /// Name line state.
+        /// </summary>
+        private StateOfView _nameState = StateOfView.Initial;
+
+        /// <summary>
+        /// Birthday line state.
+        /// </summary>
+        private StateOfView _birthdayState = StateOfView.Initial;
+
+        /// <summary>
+        /// Email line state.
+        /// </summary>
+        private StateOfView _emailState = StateOfView.Initial;
+
+        /// <summary>
+        /// VKID line state.
+        /// </summary>
+        private StateOfView _vkIDState = StateOfView.Initial;
+
+        /// <summary>
         /// Property indicates whether there are any validation errors.
         /// </summary>
         public override bool HasErrors
@@ -75,7 +100,12 @@ namespace ContactsApp
             get { return _surname; }
             set
             {
-                Validate(value, MinLength, MaxLength, nameof(Surname));
+	            if (_surnameState == StateOfView.Updated)
+	            {
+		            Validate(value, MinLength, MaxLength, nameof(Surname));
+	            }
+
+                _surnameState = StateOfView.Updated;
                 _surname = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Surname));
                 OnPropertyChanged(nameof(HasErrors));
@@ -90,8 +120,13 @@ namespace ContactsApp
             get { return _name; }
             set
             {
-                Validate(value, MinLength, MaxLength, nameof(Name));
-                _name = Validator.MakeUpperCase(value);
+	            if (_nameState == StateOfView.Updated)
+	            {
+		            Validate(value, MinLength, MaxLength, nameof(Name));
+	            }
+
+	            _nameState = StateOfView.Updated;
+	            _name = Validator.MakeUpperCase(value);
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(HasErrors));
             }
@@ -110,8 +145,13 @@ namespace ContactsApp
             get { return _birthday; }
             set
             {
-                Validate(value, MinYear, nameof(Birthday));
-                _birthday = value;
+	            if (_birthdayState == StateOfView.Updated)
+	            {
+		            Validate(value, MinYear, nameof(Birthday));
+	            }
+
+	            _birthdayState = StateOfView.Updated;
+	            _birthday = value;
                 OnPropertyChanged(nameof(Birthday));
                 OnPropertyChanged(nameof(HasErrors));
             }
@@ -125,8 +165,13 @@ namespace ContactsApp
             get { return _email; }
             set
             {
-                Validate(value, MinLength, MaxLength, nameof(Email));
-                _email = value;
+	            if (_emailState == StateOfView.Updated)
+	            {
+		            Validate(value, MinLength, MaxLength, nameof(Email));
+	            }
+
+	            _emailState = StateOfView.Updated;
+	            _email = value;
                 OnPropertyChanged(nameof(Email));
                 OnPropertyChanged(nameof(HasErrors));
             }
@@ -140,8 +185,13 @@ namespace ContactsApp
             get { return _vkID; }
             set
             {
-                Validate(value, MinLength, MaxID, nameof(VKID));
-                _vkID = value;
+	            if (_vkIDState == StateOfView.Updated)
+	            {
+		            Validate(value, MinLength, MaxID, nameof(VKID));
+	            }
+
+	            _vkIDState = StateOfView.Updated;
+	            _vkID = value;
                 OnPropertyChanged(nameof(VKID));
                 OnPropertyChanged(nameof(HasErrors));
             }

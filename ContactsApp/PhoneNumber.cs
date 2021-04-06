@@ -13,6 +13,11 @@ namespace ContactsApp
         private string _number;
 
         /// <summary>
+        /// Number line state.
+        /// </summary>
+        private StateOfView _numberState = StateOfView.Initial;
+
+        /// <summary>
         /// Returns and sets the phone number.
         /// </summary>
         public string Number
@@ -20,13 +25,17 @@ namespace ContactsApp
             get { return _number; }
             set
             {
-                ClearErrors(nameof(Number));
+	            if (_numberState == StateOfView.Updated)
+	            {
+		            ClearErrors(nameof(Number));
 
-                if (!Validator.IsPhoneNumber(value, out var valueString))
-                {
-                    AddError(nameof(Number), valueString);
-                }
+		            if (!Validator.IsPhoneNumber(value, out var valueString))
+		            {
+			            AddError(nameof(Number), valueString);
+		            }
+	            }
 
+	            _numberState = StateOfView.Updated;
                 _number = value;
                 OnPropertyChanged(nameof(Number));
                 OnErrorsChanged(nameof(HasErrors));

@@ -65,7 +65,10 @@ namespace ViewModel.WindowsVM
             CancelCommand = contactWindowService.CancelCommand;
         }
 
-        // TODO: этот метод уже есть в базовом классе, использовать готовый метод
+        // TODO: этот метод уже есть в базовом классе, использовать готовый метод (?)
+        // Так не получится. Когда мы изменяем одно любое свойство внутри контакта,
+        // срабатывает PropertyChanged, который позволяет изменить состояние кнопки.
+        // Если убрать этот обработчик, то состояние кнопки изменится только при смене экземпляра класса Contact. 
         /// <summary>
         /// Responsible for updating the access to the button.
         /// </summary>
