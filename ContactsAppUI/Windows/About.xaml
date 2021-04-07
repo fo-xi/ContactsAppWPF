@@ -36,7 +36,7 @@
             <Hyperlink FontSize="15" NavigateUri="https://github.com/fo-xi/ContactsAppWPF">fo-xi/ContactsAppWPF</Hyperlink>
         </TextBlock>
         <TextBlock
-            Margin="15,340,0,0"
+            Margin="15,325,0,15"
             FontSize="15"
             Text="2021 Dyagay Alexandra" />
     </Grid>

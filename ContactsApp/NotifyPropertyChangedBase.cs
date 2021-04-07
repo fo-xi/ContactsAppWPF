@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 namespace ContactsApp
 {
     // TODO: к названию абстрактных классов должно добавляться слово Base (+)
+    /// <summary>
+    /// The class that is responsible for notifying the client about the change in the property value.
+    /// </summary>
     public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
     {
         /// <summary>

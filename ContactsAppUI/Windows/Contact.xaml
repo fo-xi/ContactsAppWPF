@@ -9,7 +9,7 @@
     xmlns:windowsVm="clr-namespace:ViewModel.WindowsVM;assembly=ViewModel"
     Title="Contact"
     Width="500"
-    Height="240"
+    Height="250"
     d:DataContext="{d:DesignInstance windowsVm:ContactVM}"
     ResizeMode="NoResize"
     mc:Ignorable="d">
@@ -18,17 +18,18 @@
     </Window.Icon>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition SharedSizeGroup="button" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <local:ContactInformation
             Grid.Column="1"
-            Margin="5"
+            Margin="10,10,10,0"
             DataContext="{Binding Contact}" />
 
         <Grid
             Grid.Row="1"
+            Margin="10,5,10,10"
             HorizontalAlignment="Right"
             Grid.IsSharedSizeScope="True">
             <Grid.ColumnDefinitions>
@@ -38,14 +39,14 @@
             <Button
                 x:Name="buttonOK"
                 Grid.Column="0"
-                Margin="0,0,5,0"
+                Margin="0,0,0,0"
                 Command="{Binding OKCommand}"
                 Content="OK"
                 IsEnabled="{Binding IsEnabledButton}" />
             <Button
                 x:Name="buttonCancel"
                 Grid.Column="1"
-                Margin="5,0,5,0"
+                Margin="10,0,0,0"
                 Command="{Binding CancelCommand}">
                 <ContentControl>
                     <TextBlock

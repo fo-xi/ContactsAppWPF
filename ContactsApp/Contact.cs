@@ -88,8 +88,21 @@ namespace ContactsApp
         {
             get
             {
-                return base.HasErrors || Number.HasErrors;
+                return base.HasErrors || Number.HasErrors || !IsNotEmpty();
             }
+        }
+
+        /// <summary>
+        /// Checks a property if it is empty or null.
+        /// </summary>
+        /// <returns></returns>
+        private bool IsNotEmpty()
+        {
+	        return !string.IsNullOrEmpty(Surname) &&
+	               !string.IsNullOrEmpty(Name) &&
+	               !string.IsNullOrEmpty(Number.Number) &&
+	               !string.IsNullOrEmpty(Email) &&
+	               !string.IsNullOrEmpty(VKID);
         }
 
         /// <summary>

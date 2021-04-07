@@ -6,7 +6,7 @@ using ViewModel;
 namespace ContactsAppUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Main Window.
     /// </summary>
     public partial class MainWindow : Window
     {

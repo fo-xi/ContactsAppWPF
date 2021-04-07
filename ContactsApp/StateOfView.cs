@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactsApp
+﻿namespace ContactsApp
 {
+	/// <summary>
+	/// Contains the state of the line.
+	/// </summary>
 	public enum StateOfView
 	{
 		Initial,

@@ -23,18 +23,24 @@
 
         <Grid Margin="5,5,5,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="7.971" />
+                <ColumnDefinition Width="21.029" />
+                <ColumnDefinition Width="35*" />
+                <ColumnDefinition Width="368*" />
+                <ColumnDefinition Width="358*" />
             </Grid.ColumnDefinitions>
             <TextBlock
                 Grid.Column="0"
-                Margin="5"
+                Grid.ColumnSpan="2"
+                Margin="0,5,4,5"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Text="Find:" />
             <TextBox
                 x:Name="textBoxFind"
-                Grid.Column="1"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Margin="0,4"
                 VerticalAlignment="Center"
                 Text="{Binding FindText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>

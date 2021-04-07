@@ -8,6 +8,9 @@ namespace ContactsApp
 {
     // TODO: к названию абстрактных классов должно добавляться слово Base (+)
     // TODO: потерялось слово Info в названии класса из названия интерфейса (+)
+    /// <summary>
+    /// The class that is responsible for the action that will occur when an error occurs.
+    /// </summary>
     public abstract class NotifyDataErrorInfoBase : NotifyPropertyChangedBase, INotifyDataErrorInfo
     {
         /// <summary>
