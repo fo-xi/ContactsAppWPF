@@ -14,7 +14,8 @@ namespace ViewModel.WindowsVM
         /// </summary>
         private Contact _contact;
 
-        // TODO: не очевидное название. Is Enabled что? (+)
+        // TODO: не очевидное название. Is Enabled что? (-) А чем стало лучше? ))) Какой Button Enabled?
+        // Надо именовать исходя из того, что это булево свойство показывает, а не для чего оно используется
         /// <summary>
         /// Returns access to the button.
         /// </summary>
@@ -64,11 +65,7 @@ namespace ViewModel.WindowsVM
             OKCommand = contactWindowService.OKCommand;
             CancelCommand = contactWindowService.CancelCommand;
         }
-
-        // TODO: этот метод уже есть в базовом классе, использовать готовый метод (?)
-        // Так не получится. Когда мы изменяем одно любое свойство внутри контакта,
-        // срабатывает PropertyChanged, который позволяет изменить состояние кнопки.
-        // Если убрать этот обработчик, то состояние кнопки изменится только при смене экземпляра класса Contact. 
+ 
         /// <summary>
         /// Responsible for updating the access to the button.
         /// </summary>

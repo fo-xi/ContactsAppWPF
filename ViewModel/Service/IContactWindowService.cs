@@ -2,8 +2,6 @@
 
 namespace ViewModel.Service
 {
-    // TODO: НЕ НАДО ДОБАВЛЯТЬ СЛОВА "ADD", "EDIT" В НАЗВАНИЕ. ЭТО И ТАК ОЧЕВИДНО. (+)
-    // ЭТИ СЛОВА ДОБАВЛЯЮТСЯ В НЕСКОЛЬКИХ РЕДКИХ СЛУЧАЯХ
     /// <summary>
     /// Сlass responsible for showing window.
     /// </summary>

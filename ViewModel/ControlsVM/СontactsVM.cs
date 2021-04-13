@@ -16,8 +16,6 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private string _findText;
 
-        // TODO: почему public? (+)
-        // TODO: Это правильное название? (+)
         /// <summary>
         /// List of found contacts.
         /// </summary>
@@ -43,7 +41,6 @@ namespace ViewModel.ControlsVM
         /// </summary>
         private IContactWindowService _contactWindowService;
 
-        // TODO: Finded (-) FindedContacts (+)
         /// <summary>
         /// Returns and sets a list of all found contacts.
         /// </summary>
@@ -56,8 +53,6 @@ namespace ViewModel.ControlsVM
             set
             {
                 _findedContacts = Project.SortingContacts(FindText, value);
-                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName - (+)
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged();
             }
         }
@@ -75,8 +70,6 @@ namespace ViewModel.ControlsVM
             {
 
                 _findText = value;
-                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName - (+)
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged();
             }
         }
@@ -93,8 +86,6 @@ namespace ViewModel.ControlsVM
             set
             {
                 _selectedContact = value;
-                // TODO: метод реализован в базовом классе с атрибутом CallerMemberName - (+)
-                // разберись что это за атрибут, для чего он нужен и исправь вызовы этого метода у себя.
                 OnPropertyChanged();
             }
         }

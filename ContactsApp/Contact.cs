@@ -8,19 +8,16 @@ namespace ContactsApp
     /// </summary>
     public class Contact : NotifyDataErrorInfoBase, ICloneable
     {
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
         /// <summary>
         /// Minimum string length.
         /// </summary>
         private const int MinLength = 1;
 
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
         /// <summary>
         /// Maximum string length. 
         /// </summary>
         private const int MaxLength = 50;
 
-        // TODO: Базовый класс не должен знать об ограничениях на поля конкретных классов. Константы должны быть на уровне Contact (+)
         /// <summary>
         /// Minimum year allowed.
         /// </summary>

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:ContactsAppUI.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
-	Title="ContactsApp"
+    Title="ContactsApp"
     Width="800"
     Height="450"
     d:DataContext="{d:DesignInstance viewModel:MainWindowVM}"
@@ -25,23 +25,27 @@
             <RowDefinition Height="0.2*" />
         </Grid.RowDefinitions>
 
-		<Menu Grid.ColumnSpan="2" VerticalAlignment="Top" Background="White" Margin="5 0 5 0">
+        <Menu
+            Grid.ColumnSpan="2"
+            Margin="5,0,5,0"
+            VerticalAlignment="Top"
+            Background="White">
             <MenuItem Header="File">
                 <MenuItem x:Name="Exit" Header="Exit" />
             </MenuItem>
             <MenuItem Header="Edit">
-                <!--TODO названия элементов должны явно указывать, какого они типа (+)-->
+                <!--  TODO названия элементов должны явно указывать, какого они типа (-) Почему MenuItem называется как Command?  -->
                 <MenuItem x:Name="AddContactCommand" Header="Add Contact" />
                 <MenuItem x:Name="EditContactCommand" Header="Edit Contact" />
                 <MenuItem x:Name="RemoveContactCommand" Header="Remove Contact" />
             </MenuItem>
             <MenuItem Header="Help">
-                <!--TODO названия элементов должны явно указывать, какого они типа (+)-->
+                <!--  TODO названия элементов должны явно указывать, какого они типа (-)  -->
                 <MenuItem x:Name="ShowAboutWindow" Header="About" />
             </MenuItem>
         </Menu>
-		
-		<local:Сontacts
+
+        <local:Сontacts
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="0"

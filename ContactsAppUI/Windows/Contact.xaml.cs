@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using ViewModel.WindowsVM;
-// TODO: убрать пустые юзинги (+)
-// TODO: поправить пространство имен (+)
+
 namespace ContactsAppUI.Windows
 {
-    // TODO: назвать форму правильно, поправить xml-комментарий (+)
+    // TODO: назвать форму правильно (-)
     /// <summary>
     /// Contact window.
     /// </summary>
