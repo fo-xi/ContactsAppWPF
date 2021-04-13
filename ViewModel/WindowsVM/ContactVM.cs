@@ -14,12 +14,12 @@ namespace ViewModel.WindowsVM
         /// </summary>
         private Contact _contact;
 
-        // TODO: не очевидное название. Is Enabled что? (-) А чем стало лучше? ))) Какой Button Enabled?
+        // TODO: не очевидное название. Is Enabled что? (-) А чем стало лучше? ))) Какой Button Enabled? (+)
         // Надо именовать исходя из того, что это булево свойство показывает, а не для чего оно используется
         /// <summary>
         /// Returns access to the button.
         /// </summary>
-        public bool IsEnabledButton
+        public bool IsCanClicked
         {
             get
             {
@@ -73,7 +73,7 @@ namespace ViewModel.WindowsVM
         /// <param name="e"></param>
         private void ContactChanged(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(nameof(IsEnabledButton));
+            OnPropertyChanged(nameof(IsCanClicked));
         }
     }
 }

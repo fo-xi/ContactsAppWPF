@@ -13,7 +13,7 @@ namespace ContactsAppUI.Service
         /// <summary>
         /// Window for adding and editing a contact.
         /// </summary>
-        private Contact _contactWindow;
+        private ContactWindow _contactWindowWindow;
 
         /// <summary>
         /// DialogResult.
@@ -56,8 +56,8 @@ namespace ContactsAppUI.Service
         /// <param name="contact">Contact.</param>
         public void Open(ContactVM contact)
         {
-            _contactWindow = new Contact(contact);
-            _contactWindow.ShowDialog();
+            _contactWindowWindow = new ContactWindow(contact);
+            _contactWindowWindow.ShowDialog();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace ContactsAppUI.Service
         /// </summary>
         public void Close()
         {
-            _contactWindow.Close();
+            _contactWindowWindow.Close();
         }
 
         /// <summary>

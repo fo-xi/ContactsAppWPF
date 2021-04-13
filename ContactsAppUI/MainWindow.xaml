@@ -34,14 +34,14 @@
                 <MenuItem x:Name="Exit" Header="Exit" />
             </MenuItem>
             <MenuItem Header="Edit">
-                <!--  TODO названия элементов должны явно указывать, какого они типа (-) Почему MenuItem называется как Command?  -->
-                <MenuItem x:Name="AddContactCommand" Header="Add Contact" />
-                <MenuItem x:Name="EditContactCommand" Header="Edit Contact" />
-                <MenuItem x:Name="RemoveContactCommand" Header="Remove Contact" />
+                <!--  TODO названия элементов должны явно указывать, какого они типа (+) Почему MenuItem называется как Command? (+)  -->
+                <MenuItem x:Name="AddContactMenuItem" Header="Add Contact" />
+                <MenuItem x:Name="EditContactMenuItem" Header="Edit Contact" />
+                <MenuItem x:Name="RemoveContactMenuItem" Header="Remove Contact" />
             </MenuItem>
             <MenuItem Header="Help">
-                <!--  TODO названия элементов должны явно указывать, какого они типа (-)  -->
-                <MenuItem x:Name="ShowAboutWindow" Header="About" />
+                <!--  TODO названия элементов должны явно указывать, какого они типа (+)  -->
+                <MenuItem x:Name="ShowAboutWindowMenuItem" Header="About" />
             </MenuItem>
         </Menu>
 

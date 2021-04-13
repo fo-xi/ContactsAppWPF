@@ -5,9 +5,9 @@ namespace ContactsAppUI.Windows
     /// <summary>
     /// About window.
     /// </summary>
-    public partial class About : Window
+    public partial class AboutWindow : Window
     {
-        public About()
+        public AboutWindow()
         {
             InitializeComponent();
         }
